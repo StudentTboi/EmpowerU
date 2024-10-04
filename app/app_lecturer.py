@@ -40,6 +40,29 @@ class LecturerUser(User):
         super().__init__(uid, first_name, last_name, contact_num)
         self.teaching_area = teaching_area
 
+    def import_students_data(self):
+         """
+         Method to read students data and store it into the lecturer's session.
+
+         Parameter(s):
+         (None)
+
+         Returns:
+         (None)
+         """
+         self.students = []
+         students_path = "./data/pst4_students.txt"
+         if os.path.exists(students_path):
+             with open(students_path, "r", encoding="utf8") as rf:
+                 lines = rf.readlines()
+             for line in lines:
+                 student_id, first_name, last_name, date_of_birth, contact_name, contact_num = line.strip("\n").split(",")
+                 student_obj = StudentUser(student_id, first_name, last_name, date_of_birth, contact_name, contact_num)
+                 self.students.append(student_obj)
+         else:
+             print(f"Please check the subdirectory and file exists for {students_path}.")
+
+
 
 if __name__ == "__main__":
     pass
