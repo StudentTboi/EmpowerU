@@ -16,7 +16,7 @@ class LecturerUser(User):
         - an instance of LecturerUser corresponding to the username if successful,
           None otherwise
         """
-        recept_path = "./data/pst4_receptionists.txt"
+        recept_path = "./data/lecturers.txt"
         if os.path.exists(recept_path):
             with open(recept_path, "r", encoding="utf8") as rf:
                 lines = rf.readlines()
