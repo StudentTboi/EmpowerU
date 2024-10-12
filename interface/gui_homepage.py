@@ -8,7 +8,11 @@ import tkinter as tk
 
 # Local application imports
 from app.app_administrator import AdministratorUser
-from interfaces.gui_administrator_menu import AdministratorMenu
+from app.app_lecturer import LecturerUser
+from app.app_student import StudentUser
+from interface.gui_administrator_menu import AdministratorMenu
+from interface.gui_lecturer_menu import LecturerMenu
+from interface.gui_student_menu import StudentMenu
 
 class HomePage(tk.Frame):
 
@@ -81,12 +85,31 @@ class HomePage(tk.Frame):
         """
 
         administrator_user = AdministratorUser.authenticate(self.username_var.get(), self.password_var.get())
-        # Checks if receptionist_user is an instance of the AdministratorUser class (i.e. authentication is successful)
+        # Checks if administrator_user is an instance of the AdministratorUser class (i.e. authentication is successful)
+        
+        lecturer_user = LecturerUser.authenticate(self.username_var.get(), self.password_var.get())
+        # Checks if lecturer_user is an instance of the LecturerUser class (i.e. authentication is successful)
+        
+        student_user = StudentrUser.authenticate(self.username_var.get(), self.password_var.get())
+        # Checks if student_user is an instance of the StudentUser class (i.e. authentication is successful)
+        
         # https://docs.python.org/3/library/functions.html#isinstance
         if isinstance(administrator_user, AdministratorUser):
             # TODO: Complete this block; Hint: self.master is a very useful instance variable
             self.alert_var.set("")
             menu= AdministratorMenu(self.master, administrator_user)
+            menu.show_menu()
+            self.master.hide_homepage()
+        elif isinstance(lecturer_user, LecturerUser):
+            # TODO: Complete this block; Hint: self.master is a very useful instance variable
+            self.alert_var.set("")
+            menu= LecturerMenu(self.master, lecturer_user)
+            menu.show_menu()
+            self.master.hide_homepage()
+        elif isinstance(student_user, StudentrUser):
+            # TODO: Complete this block; Hint: self.master is a very useful instance variable
+            self.alert_var.set("")
+            menu= StudentMenu(self.master, student_user)
             menu.show_menu()
             self.master.hide_homepage()
         else:
