@@ -18,7 +18,7 @@ class LecturerUser(User):
         """
         recept_path = "./authenticate/lecturers.txt"
         if os.path.exists(recept_path):
-            with open(recept_path, "r", encoding="utf8") as rf:
+            with open(lecturer_path, "r", encoding="utf8") as rf:
                 lines = rf.readlines()
             for line in lines:
                 # Sequence unpacking: 
@@ -27,15 +27,15 @@ class LecturerUser(User):
                 
                 if input_username == username:
                     if input_password == password:
-                        return ReceptionistUser(recept_id, first_name, last_name, contact_num, input_username, input_password)
+                        return LecturerUser(recept_id, first_name, last_name, contact_num, input_username, input_password)
                     else:
                         return None # or return, or break
         else:
-            print(f"Please check subdirectory and file {recept_path} exists.")
+            print(f"Please check subdirectory and file {lecturer_path} exists.")
           
     def __init__(self, uid, first_name, last_name, contact_num, teaching_area):
         """
-        Constructor for the TeacherUser class
+        Constructor for the LecturerUser class
         """
         super().__init__(uid, first_name, last_name, contact_num)
         self.teaching_area = teaching_area
