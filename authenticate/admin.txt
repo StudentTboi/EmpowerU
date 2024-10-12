@@ -1,1 +1,2 @@
-r01,Vince,Nguyen,0499999999,invce,invc3
+a01,Vince,Nguyen,0499999999,invce,invc3
+a02,Muhammad,Aqila,0487654321,lilo,l1l0
