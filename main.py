@@ -8,7 +8,7 @@ This file contains the function definition to run the GUI application.
 import tkinter as tk
 
 # Local application imports
-from interfaces.gui_main_window import EMPU
+from interface.gui_main_window import EMPU
 
 def main():
     """
