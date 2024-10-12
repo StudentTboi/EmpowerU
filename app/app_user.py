@@ -1,6 +1,6 @@
 class User:
 
-    def __init__(self, uid, first_name, last_name, contact_num, contact_email):
+    def __init__(self, uid, first_name, last_name, contact_num, contact_email="NO EMAIL"):
         """
         Constructor for the User class.
         """
