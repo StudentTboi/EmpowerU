@@ -6,7 +6,7 @@ EmpowerU main window page
 import tkinter as tk
 
 # Local application imports
-from interfaces.gui_homepage import HomePage
+from interface.gui_homepage import HomePage
 
 class EMPU(tk.Tk):
 
