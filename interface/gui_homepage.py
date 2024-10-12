@@ -90,30 +90,26 @@ class HomePage(tk.Frame):
         lecturer_user = LecturerUser.authenticate(self.username_var.get(), self.password_var.get())
         # Checks if lecturer_user is an instance of the LecturerUser class (i.e. authentication is successful)
         
-        student_user = StudentrUser.authenticate(self.username_var.get(), self.password_var.get())
+        student_user = StudentUser.authenticate(self.username_var.get(), self.password_var.get())
         # Checks if student_user is an instance of the StudentUser class (i.e. authentication is successful)
         
         # https://docs.python.org/3/library/functions.html#isinstance
         if isinstance(administrator_user, AdministratorUser):
-            # TODO: Complete this block; Hint: self.master is a very useful instance variable
             self.alert_var.set("")
-            menu= AdministratorMenu(self.master, administrator_user)
+            menu = AdministratorMenu(self.master, administrator_user)
             menu.show_menu()
             self.master.hide_homepage()
         elif isinstance(lecturer_user, LecturerUser):
-            # TODO: Complete this block; Hint: self.master is a very useful instance variable
             self.alert_var.set("")
-            menu= LecturerMenu(self.master, lecturer_user)
+            menu = LecturerMenu(self.master, lecturer_user)
             menu.show_menu()
             self.master.hide_homepage()
-        elif isinstance(student_user, StudentrUser):
-            # TODO: Complete this block; Hint: self.master is a very useful instance variable
+        elif isinstance(student_user, StudentUser):
             self.alert_var.set("")
-            menu= StudentMenu(self.master, student_user)
+            menu = StudentMenu(self.master, student_user)
             menu.show_menu()
             self.master.hide_homepage()
         else:
-            # TODO: Complete this block
             self.alert_var.set("Wrong Username or password!")
         self.username_entry.delete(0,"end")
         self.password_entry.delete(0,"end")
