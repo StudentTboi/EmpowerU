@@ -1,1 +1,25 @@
+[What is Information Security?]
+
+Information Security (or InfoSec) is about protecting important data from being stolen, misused, or destroyed. Data itself can be your personal information to company secrets. InfoSec is there to provide means of keeping information safe from malicious and unauthorized access from others. From hacking, physical spaces (seizing your belongings to access information on digital things) and access in ways that can harm organizations.
+
+[Why is InfoSec important?]
+
+Imagine someone was to steal your important details of you or your company. This could include your passwords, band details or possibly conversations. InfoSec is a means of protecting your details through technologies, rules, and practices to ensure the right people have access to your info.
+
+[Key Elements of Information Security]
+These are only introductions to the concepts
+- Application Security: Protecting programs and data handled.
+- Cloud Security: Keeping data and systems safe by saving data in remote locations (servers).
+- Cryptography: Utilizing code to protect messages only the person meant to receive to read it.
+- Disaster Recovery: Having a plan for systems to get up and running again after sudden events occur (such as natural disasters, leading to a black out or a cyber attack).
+- Incident Response: Plans for dealing with cyberattacks or data breaches.
+- Infrastructure Security: The process of protecting an organization’s network, through hardware and software protection practices.
+- Vulnerability Management: Finding and fixing weakness in systems before they cause harm
+
+[CIA Triad - Three Important Part of InfoSec]
+
+Information security focuses on three main ideas. Often called the CIA Triad
+1. Confidentiality: Keeping data private. Only authorized individuals should be able to access data. Passwords, encryption, and tools for special access controls help with this.  
+2. Integrity: Ensuring data is correct with no alterations without permission. Important to trust data is accurate. 
+3. Availability: Ensuring right people can access data whenever needed. Such as ensuring systems are working properly and that users can log in without issues. 
 
