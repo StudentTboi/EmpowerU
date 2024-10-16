@@ -1,6 +1,5 @@
 """
-FIT1056 2024 Semester 2
-Programming Concepts Task 4
+EmpowerU
 
 This file contains the class definition for the AdministratorMenu class.
 """
