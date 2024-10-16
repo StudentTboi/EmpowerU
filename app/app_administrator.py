@@ -26,9 +26,9 @@ class AdministratorUser(User):
 
     def __init__(self, uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
         super().__init__(uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
-        self.import_all_data()
+        self.import_teacher_student_data()
 
-    def import_all_data(self):
+    def import_teacher_student_data(self):
         """
         Method to read all data by calling methods to read teachers data and students data.
 
@@ -38,12 +38,12 @@ class AdministratorUser(User):
         Returns:
         (None)
         """
-        self.import_teachers_data()
+        self.import_lecturers_data()
         self.import_students_data()
 
-    def import_teachers_data(self):
+    def import_lecturers_data(self):
         """
-        Method to read teachers data and store it into the receptionist's session.
+        Method to read lecturers data and store it into the admin's session.
 
         Parameter(s):
         (None)
@@ -65,7 +65,7 @@ class AdministratorUser(User):
 
     def import_students_data(self):
         """
-        Method to read students data and store it into the receptionist's session.
+        Method to read students data and store it into the admin's session.
 
         Parameter(s):
         (None)
@@ -84,6 +84,27 @@ class AdministratorUser(User):
                 enrolled_courses_list = enrolled_courses.split("&")
                 student_obj = StudentUser(student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, enrolled_courses_list)
                 self.students.append(student_obj)
+
+    def import_admins_data(self):
+        """
+        Method to read admins data and store it into the admin's session.
+
+        Parameter(s):
+        (None)
+
+        Returns:
+        (None)
+        """
+        self.admins = []
+        admins_path = "./authenticate/admins.txt"
+        lines = util.read_file(admins_path)
+        if lines:
+            for line in lines:
+                if len(line)<6:
+                    continue
+                admin_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password = line.strip("\n").split(",")
+                admin_obj = AdministratorUser(admin_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
+                self.admins.append(admin_obj)
 
     def store_student_data(self, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
         """
@@ -111,6 +132,66 @@ sdqwd
         
         if util.append_to_file(filepath, new_student_line):
             self.students.append(student_obj)
+            return True
+        else:
+            return False
+
+    def store_lecturer_data(self, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization):
+        """
+        Method to register the student in the system 
+        and write the data of the new student into the file.
+
+        Parameter(s):
+        - first_name: str, student's first name
+        - last_name: str, student's last name
+        - date_of_birth: str, student's date of birthwdawd
+        - contact_num: str, contact number of either student or contact person
+sdqwd
+        Returns:
+        - bool: True if student data is stored from the system into the txt file, 
+                False otherwise
+        """
+
+        # Create the Student object
+        # Assume no skips in student ID
+        lecturer_id = "l" + str(len(self.lecturers) + 1).zfill(4)
+        lecturer_obj = LecturerUser(lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization)
+        specialization_combined = '&'.join(specialization)
+        filepath = "./authenticate/lecturers.txt"
+        new_lecturer_line = f"{lecturer_id},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},{specialization_combined}\n"
+        
+        if util.append_to_file(filepath, new_lecturer_line):
+            self.students.append(lecturer_obj)
+            return True
+        else:
+            return False
+
+    def store_admin_data(self, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
+        """
+        Method to register the student in the system 
+        and write the data of the new student into the file.
+
+        Parameter(s):
+        - first_name: str, student's first name
+        - last_name: str, student's last name
+        - date_of_birth: str, student's date of birthwdawd
+        - contact_num: str, contact number of either student or contact person
+sdqwd
+        Returns:
+        - bool: True if student data is stored from the system into the txt file, 
+                False otherwise
+        """
+
+        # Create the Student object
+        # Assume no skips in student ID
+        admin_id = "a" + str(len(self.admins) + 1).zfill(2)
+        admin_obj = AdministratorUser(admin_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
+        
+        filepath = "./authenticate/admins.txt"
+        new_admin_line = f"{admin_id},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},\n"
+        
+        if util.append_to_file(filepath, new_admin_line):
+            self.students.append(admin_obj)
             return True
         else:
             return False
