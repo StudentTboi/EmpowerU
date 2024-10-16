@@ -58,9 +58,9 @@ class AdministratorUser(User):
             for line in lines:
                 if len(line)<6:
                     continue
-                lecturer_id, first_name, last_name, contact_num, specialization = line.strip("\n").split(",")
+                lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization = line.strip("\n").split(",")
                 specialization_list = specialization.split("&")
-                lecturer_obj = LecturerUser(lecturer_id, first_name, last_name, contact_num, specialization_list)
+                lecturer_obj = LecturerUser(lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization_list)
                 self.lecturers.append(lecturer_obj)
 
     def import_students_data(self):
