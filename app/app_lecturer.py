@@ -29,22 +29,23 @@ class LecturerUser(User):
                     print(f"WARNING: A line in {lecturer_path} is invalid")
                     continue
                 
-                lecturer_id, first_name, last_name, contact_num, username, password = line.strip("\n").split(",")
+                lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization = line.strip("\n").split(",")
+                specialization_list = specialization.split("&")
                 
                 if input_username == username:
                     if input_password == password:
-                        return LecturerUser(lecturer_id, first_name, last_name, contact_num, input_username, input_password)
+                        return LecturerUser(lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization_list)
                     else:
                         return None # or return, or break
         else:
             print(f"Please check subdirectory and file {lecturer_path} exists.")
           
-    def __init__(self, uid, first_name, last_name, contact_num, teaching_area):
+    def __init__(self, uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization):
         """
         Constructor for the LecturerUser class
         """
-        super().__init__(uid, first_name, last_name, contact_num)
-        self.teaching_area = teaching_area
+        super().__init__(uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
+        self.specialization = specialization
 
     def import_students_data(self):
         """
