@@ -1,3 +1,3 @@
 s01,Student,One,0499999999,stu1,stu1
 s02,Student,Two,0487654321,stu2,stu2
-s03,Kristin,Purnell,0412344321,kpur,kpurpass
+s03,Kristin,Purnell,0412344321,kristinp,kr1st1np
