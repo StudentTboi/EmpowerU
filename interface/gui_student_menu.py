@@ -32,16 +32,16 @@ class StudentMenu(tk.Frame):
         self.register_btn = tk.Button(self, text="Register a student")
         self.register_btn.pack(padx=10, pady=10)
 
-        self.search_btn = tk.Button(self, text="Search lecturers by instrument", command=self.show_search_lecturers_frame)
+        self.search_btn = tk.Button(self, text="Progress Checker", command=self.show_progress_page)
         self.search_btn.pack(padx=10, pady=10)
 
-        self.class_btn = tk.Button(self, text="Create a weekly scheduled class")
+        self.class_btn = tk.Button(self, text="Access Course materials")
         self.class_btn.pack(padx=10, pady=10)
 
         self.logout_btn = tk.Button(self, text="Log out", command=self.logout)
         self.logout_btn.pack(padx=10, pady=10)
 
-    def show_search_lecturers_frame(self):
+    def show_progress_page(self):
         pass
     #     """
     #     Method to handle the search lecturers functionality upon button click.
