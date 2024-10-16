@@ -1,2 +1,2 @@
-a01,Vince,Nguyen,0499999999,invce,invc3
-a02,Muhammad,Aqila,0487654321,lilo,l1l0
+a01,Vince,Nguyen,01/01/2004,0499999999,vince@student.monash.edu,invce,invc3
+a02,Muhammad,Aqila,0487654321,14/10/2004,maqi0001@student.monash.edu,lilo,l1l0
