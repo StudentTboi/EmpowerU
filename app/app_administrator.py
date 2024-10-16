@@ -154,7 +154,7 @@ sdqwd
 
         # Create the Student object
         # Assume no skips in student ID
-        lecturer_id = "l" + str(len(self.lecturers) + 1).zfill(4)
+        lecturer_id = "l" + str(len(self.lecturers) + 1).zfill(2)
         lecturer_obj = LecturerUser(lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization)
         specialization_combined = '&'.join(specialization)
         filepath = "./authenticate/lecturers.txt"
