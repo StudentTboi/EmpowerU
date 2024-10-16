@@ -41,7 +41,8 @@ class LecturerMenu(tk.Frame):
         self.logout_btn = tk.Button(self, text="Log out", command=self.logout)
         self.logout_btn.pack(padx=10, pady=10)
 
-    # def show_search_lecturers_frame(self):
+    def show_search_lecturers_frame(self):
+        pass
     #     """
     #     Method to handle the search lecturers functionality upon button click.
     #     """
