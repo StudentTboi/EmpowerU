@@ -1,8 +1,7 @@
 """
-FIT1056 2024 Semester 2
-Programming Concepts Task 4
+EmpowerU
 
-This file contains the class definition for the AdministratorMenu class.
+This file contains the class definition for the LecturerMenu class.
 """
 
 # Third party imports
@@ -10,21 +9,21 @@ import tkinter as tk
 
 class LecturerMenu(tk.Frame):
 
-    def __init__(self, master, administrator_user):
+    def __init__(self, master, lecturer_user):
         """
         Constructor for the AdministratorMenu
 
         Parameter(s):
         - master: master widget of this widget instance
-        - Administrator_user: an instance of the AdministratorUser class
-                             representing the Administrator that has 
+        - Lecturer_user: an instance of the LecturerUser class
+                             representing the Lecturer that has 
                              successfully logged in
         """
         super().__init__(master=master)
         self.master = master
-        self.administrator_user = administrator_user
+        self.lecturer_user = lecturer_user
 
-        self.welcome_label = tk.Label(self, text=f"Welcome in, {administrator_user.first_name}!")
+        self.welcome_label = tk.Label(self, text=f"Welcome in, {lecturer_user.first_name}!")
         self.welcome_label.pack(padx=10, pady=10)
 
         self.label1 = tk.Label(self, text="Choose one of the following:")
@@ -46,7 +45,7 @@ class LecturerMenu(tk.Frame):
     #     """
     #     Method to handle the search lecturers functionality upon button click.
     #     """
-    #     search_lecturers = Searchlecturers(self.master, self, self.Administrator_user)
+    #     search_lecturers = Searchlecturers(self.master, self, self.Lecturer_user)
     #     search_lecturers.place(relx=.5, rely=.5, anchor=tk.CENTER)
     #     self.hide_menu()
 
@@ -65,13 +64,13 @@ class LecturerMenu(tk.Frame):
 
     def show_menu(self):
         """
-        Method to show the Administrator menu in the main window.
+        Method to show the Lecturer menu in the main window.
         """
         self.place(relx=.5, rely=.5, anchor=tk.CENTER)
 
     def hide_menu(self):
         """
-        Method to hide the Administrator menu frame.
+        Method to hide the Lecturer menu frame.
         """
         self.place_forget()
 
