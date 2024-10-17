@@ -1,1 +1,38 @@
+[introduction]
+Python is a popular programming language created by Guido van Rossum in 1991. It is used for:
+- Web development (server-side)
+- Software development
+- Mathematics
+- System scripting
+It is also widely recognized due to the versatility and ease of use among many web applications, and machine learning (ai)
 
+[why Python]
+Python offers several advantages:
+- Words with different platforms (Windows, Mac, Linux, Raspberry Pi, etc.)
+- Syntax that is similar to English, making it more intuitive
+- Fewer lines of code compared to many other languages
+- Supports / enables multiple coding concepts : procedural, object-oriented, and functional programing
+- Python is interpreted meaning you can run code as early as it is written
+
+[python syntax]
+- Python was written to be readable, with coding syntax akin to english and mathematics.
+- Instead of semicolons or parentheses, Python uses newlines to complete a command. (This will be explored in the coding examples.
+- Indents are used to define loops, functions, and classes.
+
+[Basic Python Installation]
+ To check if Python is installed:
+ - Windows: Search for "Python" in the start menu or run `python --version` in Command Prompt.
+ - Linux/Mac: Open the terminal and type `python --version` to verify if Python is installed. 
+
+If Python is not installed, you can download it from the official website: 
+
+[https://www.python.org/](https://www.python.org/). 
+[Running Python Code] After writing a Python file (e.g., `helloworld.py`), you can run it via the command line:
+
+[code example]
+
+print("Hello, World!")
+
+expected output:
+
+Hello, World!
