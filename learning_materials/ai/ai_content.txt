@@ -1,1 +1,29 @@
+[What is Artificial Intelligence (AI)?]
 
+Artificial intelligence, or AI, is a field of computer science focussing on making machines smart. AI helps machines do things requiring human intelligence, like recognising language, decision making, and learning new things. 
+
+AI is used in many areas. For example: 
+- Self-driving cars: Cars capable of driving themselves
+- Personalized healthcare: Doctors / healthcare words utilize AI to assist in diagnostic works and treatments. 
+- Voice assistants: Virtual helpers like Siri or Alexa answer questions and perform tasks. 
+
+[Why is AI important?]
+
+1. Automate repetitive tasks: Capable of doing simple, repetitive tasks, freeing people for more things.
+2. Improve decision-making: Use of data capable of helping people make better decisions.
+3. Personalize experiences: Offering personalized recommendations, suggestion movies or songs you might like, this can already be seen in personalized adverts as well.
+4. Help people with disabilities: Assisting in trouble in communication.
+
+[Key concepts and terminology in AI]
+
+- Machine Learning (ML): Type of AI where machines learn from data. Instead of being programmed with specific rules, machines learn from data, improvements in performance along the way. 
+- Deep Learning: Different types of machine learning using neural networks that attempt to mimic how the human brain functions, recognizing patterns with provided data. 
+- Natural language Processing (NLP): Part of AI that helps machines understand and process human language, such as speech and text. 
+- Robotics: AI helps robots perform tasks, moving, picking up objects, and navigation.
+
+[Types of AI]
+ There are four main types of AI: 
+1. Reactive Machines: These AI systems can only react to what’s happening right now. No learning from past sequences.
+2. Limited Memory: This type of AI can use past experiences to make better decisions in the future, like self-driving cars that learn from their surroundings. (Most typically depicted when commonly seen in AI media)
+3. Theory of Mind: This is a future type of AI that might understand human emotions and interact with people in a more human-like way. 
+4. Self-Aware AI: This doesn’t exist yet, but it would be AI that knows it exists and can think and reason like a human.
