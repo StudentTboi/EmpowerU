@@ -31,6 +31,26 @@ def read_file(filepath):
     finally:
         if successful_read:
             return lines
+        
+def overwrite_file_at_line(filepath, line_number, contents):
+    successful_overwrite = False
+    try:
+        with open(file=filepath, mode="r", encoding="utf8") as f:
+            lines = f.readlines()
+        if len(lines) == 0:
+            print("WARNING: File is empty.")
+        lines[line_number] = contents
+        with open(file=filepath, mode="w", encoding="utf8") as f:
+            f.writelines(lines)
+            
+        successful_overwrite = True
+
+    except FileNotFoundError:
+        print("ERROR: File not found.")
+    except UnicodeDecodeError:
+        print("ERROR: Could not decode file with UTF-8 encoding.")
+    finally:
+        return successful_overwrite
 
 def append_to_file(filepath, contents):
     """

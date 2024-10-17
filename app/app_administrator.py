@@ -191,7 +191,25 @@ sdqwd
         new_admin_line = f"{admin_id},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},\n"
         
         if util.append_to_file(filepath, new_admin_line):
-            self.students.append(admin_obj)
+            self.admins.append(admin_obj)
             return True
         else:
             return False
+    
+    def edit_admin_data(self, admin_to_edit, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
+        filepath = "./authenticate/admins.txt"
+        new_admin_line = f"{admin_to_edit.uid},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password}\n"
+        
+        return util.overwrite_file_at_line(filepath, int(admin_to_edit.uid[1:])-1,new_admin_line)
+
+    def edit_student_data(self, student_to_edit, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
+        filepath = "./authenticate/students.txt"
+        new_student_line = f"{student_to_edit.uid},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},\n"
+        
+        return util.overwrite_file_at_line(filepath, int(student_to_edit.uid[1:])-1,new_student_line)
+
+    def edit_lecturer_data(self, lecturer_to_edit, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
+        filepath = "./authenticate/lecturers.txt"
+        new_lecturer_line = f"{lecturer_to_edit.uid},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},\n"
+        
+        return util.overwrite_file_at_line(filepath, int(lecturer_to_edit.uid[1:])-1,new_lecturer_line)
