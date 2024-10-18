@@ -6,7 +6,7 @@ This file contains the class definition for the StudentMenu class.
 
 # Third party imports
 import tkinter as tk
-from gui_course_materials import CourseMaterials
+from interface.gui_course_materials import CourseMaterials
 
 class StudentMenu(tk.Frame):
 
