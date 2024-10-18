@@ -11,5 +11,5 @@ import app_utils as util
 class CourseMaterials(tk.Frame):
     def __init__(self, master, user):
       self.master=master
-      self.user-user
+      self.user=user
         
