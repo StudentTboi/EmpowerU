@@ -55,5 +55,5 @@ class CourseMaterials(tk.Frame):
         (None)
         """
         self.place_forget()
-        self.administrator_menu.place(relx=.5, rely=.5, anchor=tk.CENTER)
+        self.menu.place(relx=.5, rely=.5, anchor=tk.CENTER)
 
