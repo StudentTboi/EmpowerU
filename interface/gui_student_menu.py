@@ -6,6 +6,7 @@ This file contains the class definition for the StudentMenu class.
 
 # Third party imports
 import tkinter as tk
+from gui_course_materials import CourseMaterials
 
 class StudentMenu(tk.Frame):
 
@@ -35,7 +36,7 @@ class StudentMenu(tk.Frame):
         self.search_btn = tk.Button(self, text="Progress Checker", command=self.show_progress_page)
         self.search_btn.pack(padx=10, pady=10)
 
-        self.class_btn = tk.Button(self, text="Access Course materials")
+        self.class_btn = tk.Button(self, text="Access Course materials", command=self.show_course_materials)
         self.class_btn.pack(padx=10, pady=10)
 
         self.logout_btn = tk.Button(self, text="Log out", command=self.logout)
@@ -49,6 +50,11 @@ class StudentMenu(tk.Frame):
     #     search_lecturers = Searchlecturers(self.master, self, self.Student_user)
     #     search_lecturers.place(relx=.5, rely=.5, anchor=tk.CENTER)
     #     self.hide_menu()
+
+    def show_course_materials(self):
+        access_materials = CourseMaterials(self.master, self, self.student_user)
+        CourseMaterials.place(relx=.5, rely=.5, anchor=tk.CENTER)
+        self.hide_menu()
 
     def logout(self):
         """
