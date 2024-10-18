@@ -53,7 +53,7 @@ class StudentMenu(tk.Frame):
 
     def show_course_materials(self):
         access_materials = CourseMaterials(self.master, self, self.student_user)
-        CourseMaterials.place(relx=.5, rely=.5, anchor=tk.CENTER)
+        access_materials.place(relx=.5, rely=.5, anchor=tk.CENTER)
         self.hide_menu()
 
     def logout(self):
