@@ -12,7 +12,7 @@ sys.path.append("../app")
 import pytest
 
 # Local application imports
-from app_student import StudentUser
+from app.app_student import StudentUser
 
 def test_authenticate():
     """
