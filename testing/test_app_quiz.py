@@ -12,7 +12,7 @@ sys.path.append("../app")
 import pytest
 
 # Local application imports
-from app_quiz import Quiz
+from app.app_quiz import Quiz
 
 def test_loadQuizFromFile(filename: str):
   lq1= Quiz.loadQuizFromFile("filename")
