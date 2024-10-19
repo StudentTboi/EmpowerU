@@ -6,9 +6,16 @@ This file contains the class definition for the CourseMaterials class.
 
 # Third party imports
 import tkinter as tk
+import app.app_utils as util
+from functools import partial
+from interface.gui_ai_courses import AICourse
+from interface.gui_infosec_courses import InfoSecCourse
+from interface.gui_py_courses import PyCourse
+
 
 class CourseMaterials(tk.Frame):
-    def __init__(self, master, menu, user):
+
+   def __init__(self, master, menu, user):
       
       super().__init__(master=master)
       self.master = master
@@ -16,44 +23,75 @@ class CourseMaterials(tk.Frame):
       self.user = user
 
       self.welcome_label = tk.Label(self, text=f"Welcome in, {user.first_name}!")
-      self.welcome_label.pack(padx=10, pady=10)
+      self.welcome_label.grid(row=1, columnspan=2, sticky=tk.S, padx=10, pady=10)
 
       self.label1 = tk.Label(self, text="Choose one of the following:")
-      self.label1.pack(padx=10, pady=10)
+      self.label1.grid(row=2, columnspan=2, sticky=tk.S, padx=10, pady=10)
 
-      self.register_btn = tk.Button(self, text="Artificial Intelligence", command=self.show_ai_materials)
-      self.register_btn.pack(padx=10, pady=10)
-
-      self.search_btn = tk.Button(self, text="Information Security", command=self.show_infosec_materials)
-      self.search_btn.pack(padx=10, pady=10)
-
-      self.class_btn = tk.Button(self, text="Python", command=self.show_python_materials)
-      self.class_btn.pack(padx=10, pady=10)
+      self.show_materials()
 
       # Return to menu button
       self.return_button = tk.Button(self, text="Return to menu", command=self.return_to_menu)
-      self.return_button.pack(padx=10, pady=10)
+      self.return_button.grid(row=10, column=1, padx=10, pady=10, sticky=tk.E)
         
-      
-    def show_ai_materials(self):
-       pass
-    
-    def show_infosec_materials(self):
-       pass
-    
-    def show_python_materials(self):
-       pass
-    
-    def return_to_menu(self):
-        """
-        This method handles the GUI logic to return to the receptionist's menu.
+   def show_materials(self):
+      self.course_buttons = []
+      for index,courses in enumerate(self.user.specialization):
+         show_chosen_materials_with_user = partial(self.show_chosen_materials,courses)
+         new_button = tk.Button(master=self, text=f"{courses}", command=show_chosen_materials_with_user)
+         new_button.grid(row=index+3, column=0, padx=10, pady=10, sticky=tk.E)
+         self.course_buttons.append(new_button)
 
-        Parameters:
-        (None)
+   def show_chosen_materials(self, courses):
+      if courses =="AI":
+         self.show_ai_materials()
+      elif courses=="InfoSec":
+         self.show_infosec_materials()
+      elif courses=="PyLearn":
+         self.show_pylearn_materials()
 
-        Returns:
-        (None)
-        """
-        self.place_forget()
-        self.menu.place(relx=.5, rely=.5, anchor=tk.CENTER)
+
+   def show_ai_materials(self):
+      """
+      Method to handle the course materials upon button click.
+      """
+      ai_materials = AICourse(self.master, self, self.user)
+      ai_materials.place(relx=.5, rely=.5, anchor=tk.CENTER)
+      self.hide_menu()
+
+    
+   def show_infosec_materials(self):
+      infosec_materials = InfoSecCourse(self.master, self, self.user)
+      infosec_materials.place(relx=.5, rely=.5, anchor=tk.CENTER)
+      self.hide_menu()
+    
+   def show_pylearn_materials(self):
+      py_materials = PyCourse(self.master, self, self.user)
+      py_materials.place(relx=.5, rely=.5, anchor=tk.CENTER)
+      self.hide_menu()
+    
+   def show_menu(self):
+      """
+      Method to show the menu in the main window.
+      """
+      self.place(relx=.5, rely=.5, anchor=tk.CENTER)
+
+   def hide_menu(self):
+      """
+      Method to hide the menu frame.
+      """
+      self.place_forget()
+
+   def return_to_menu(self):
+      """
+      This method handles the GUI logic to return to the receptionist's menu.
+
+      Parameters:
+      (None)
+
+      Returns:
+      (None)
+      """
+      self.place_forget()
+      self.menu.place(relx=.5, rely=.5, anchor=tk.CENTER)
 
