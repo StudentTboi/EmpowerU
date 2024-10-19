@@ -37,6 +37,9 @@ class StudentUser(User):
     
     def import_course_data(self):
         return
+
+    def view_progress(self):
+        return self.progress
         
 
 if __name__ == "__main__":
