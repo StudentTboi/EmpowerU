@@ -43,13 +43,10 @@ class StudentMenu(tk.Frame):
         self.logout_btn.pack(padx=10, pady=10)
 
     def show_progress_page(self):
-        pass
-    #     """
-    #     Method to handle the search lecturers functionality upon button click.
-    #     """
-    #     search_lecturers = Searchlecturers(self.master, self, self.Student_user)
-    #     search_lecturers.place(relx=.5, rely=.5, anchor=tk.CENTER)
-    #     self.hide_menu()
+        access_progress = Progress(self.master, self, self.student_user)
+        access_progress.place(relx=.5, rely=.5, anchor=tk.CENTER)
+        self.hide_menu()
+
 
     def show_course_materials(self):
         access_materials = CourseMaterials(self.master, self, self.student_user)
