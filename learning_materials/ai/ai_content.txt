@@ -23,7 +23,7 @@ AI is used in many areas. For example:
 
 [Types of AI]
  There are four main types of AI: 
-1. Reactive Machines: These AI systems can only react to what’s happening right now. No learning from past sequences.
+1. Reactive Machines: These AI systems can only react to what's happening right now. No learning from past sequences.
 2. Limited Memory: This type of AI can use past experiences to make better decisions in the future, like self-driving cars that learn from their surroundings. (Most typically depicted when commonly seen in AI media)
 3. Theory of Mind: This is a future type of AI that might understand human emotions and interact with people in a more human-like way. 
-4. Self-Aware AI: This doesn’t exist yet, but it would be AI that knows it exists and can think and reason like a human.
+4. Self-Aware AI: This doesn't exist yet, but it would be AI that knows it exists and can think and reason like a human.
