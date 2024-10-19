@@ -116,7 +116,6 @@ class AdministratorUser(User):
         - last_name: str, student's last name
         - date_of_birth: str, student's date of birthwdawd
         - contact_num: str, contact number of either student or contact person
-sdqwd
         Returns:
         - bool: True if student data is stored from the system into the txt file, 
                 False otherwise
@@ -146,7 +145,6 @@ sdqwd
         - last_name: str, student's last name
         - date_of_birth: str, student's date of birthwdawd
         - contact_num: str, contact number of either student or contact person
-sdqwd
         Returns:
         - bool: True if student data is stored from the system into the txt file, 
                 False otherwise
@@ -176,7 +174,6 @@ sdqwd
         - last_name: str, student's last name
         - date_of_birth: str, student's date of birthwdawd
         - contact_num: str, contact number of either student or contact person
-sdqwd
         Returns:
         - bool: True if student data is stored from the system into the txt file, 
                 False otherwise
