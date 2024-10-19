@@ -11,7 +11,7 @@ class Course:
             self.reading_materials = Course.loadReadingFromFile(f"{filepath}/infoSec_content.txt")
             self.quiz = Quiz.loadQuizFromFile(f"{filepath}/infoSec_quiz.txt")
         elif course_type == "PyLearn":
-            filepath = "./learning_materials/py"
+            filepath = "./learning_materials/python"
             self.reading_materials = Course.loadReadingFromFile(f"{filepath}/py_content.txt")
             self.quiz = Quiz.loadQuizFromFile(f"{filepath}/py_quiz.txt")
     
