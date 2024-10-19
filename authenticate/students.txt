@@ -1,1 +1,1 @@
-s0001,Kristin,Purnell,01/02/2001,0412344321,kris@kris.com,kristinp,kr1st1np,
+s0001,Kristin,Purnell,01/02/2001,0412344321,kris@kris.com,kristinp,kr1st1np,AI

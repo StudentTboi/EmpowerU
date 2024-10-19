@@ -16,30 +16,26 @@ class StudentUser(User):
                 if len(line)<6:
                     continue
                 
-                student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, enrolled_courses = line.strip("\n").split(",")
-                enrolled_courses_list = enrolled_courses.split("&")
+                student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization = line.strip("\n").split(",")
+                specialization = specialization.split("&")
                 if input_username == username:
                     if input_password == password:
-                        return StudentUser(student_id, first_name, last_name, date_of_birth, contact_num, contact_email, input_username, input_password, enrolled_courses_list)
+                        return StudentUser(student_id, first_name, last_name, date_of_birth, contact_num, contact_email, input_username, input_password, specialization)
                     else:
                         return None # or return, or break
         else:
             print(f"Please check subdirectory and file {student_path} exists.")
 
-    def __init__(self, uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, enrolled_courses=[]):
+    def __init__(self, uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization=[]):
         """
         Constructor
         """
         super().__init__(uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
-        self.enrolled_courses = enrolled_courses
+        self.specialization = specialization
         self.import_course_data()
-        self.progreess={}
     
     def import_course_data(self):
         return
-
-    def view_progress(self):
-        return self.progress
         
 
 if __name__ == "__main__":
