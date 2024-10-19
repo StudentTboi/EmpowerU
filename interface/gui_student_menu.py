@@ -7,6 +7,7 @@ This file contains the class definition for the StudentMenu class.
 # Third party imports
 import tkinter as tk
 from interface.gui_course_materials import CourseMaterials
+from interface.gui_progress import Progress
 
 class StudentMenu(tk.Frame):
 
@@ -29,9 +30,6 @@ class StudentMenu(tk.Frame):
 
         self.label1 = tk.Label(self, text="Choose one of the following:")
         self.label1.pack(padx=10, pady=10)
-
-        self.register_btn = tk.Button(self, text="Register a student")
-        self.register_btn.pack(padx=10, pady=10)
 
         self.search_btn = tk.Button(self, text="Progress Checker", command=self.show_progress_page)
         self.search_btn.pack(padx=10, pady=10)
