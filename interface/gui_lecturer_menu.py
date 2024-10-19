@@ -6,6 +6,7 @@ This file contains the class definition for the LecturerMenu class.
 
 # Third party imports
 import tkinter as tk
+from interface.gui_course_materials import CourseMaterials
 
 class LecturerMenu(tk.Frame):
 
@@ -32,7 +33,7 @@ class LecturerMenu(tk.Frame):
         self.register_btn = tk.Button(self, text="Register a student")
         self.register_btn.pack(padx=10, pady=10)
 
-        self.search_btn = tk.Button(self, text="Search lecturers by instrument", command=self.show_search_lecturers_frame)
+        self.search_btn = tk.Button(self, text="Edit content", command=self.show_editor_frame)
         self.search_btn.pack(padx=10, pady=10)
 
         self.class_btn = tk.Button(self, text="Create a weekly scheduled class")
@@ -41,14 +42,14 @@ class LecturerMenu(tk.Frame):
         self.logout_btn = tk.Button(self, text="Log out", command=self.logout)
         self.logout_btn.pack(padx=10, pady=10)
 
-    def show_search_lecturers_frame(self):
-        pass
-    #     """
-    #     Method to handle the search lecturers functionality upon button click.
-    #     """
-    #     search_lecturers = Searchlecturers(self.master, self, self.Lecturer_user)
-    #     search_lecturers.place(relx=.5, rely=.5, anchor=tk.CENTER)
-    #     self.hide_menu()
+
+    def show_editor_frame(self):
+        """
+        Method to handle the search lecturers functionality upon button click.
+        """
+        edit_course = CourseMaterials(self.master, self, self.lecturer_user)
+        edit_course.place(relx=.5, rely=.5, anchor=tk.CENTER)
+        self.hide_menu()
 
     def logout(self):
         """

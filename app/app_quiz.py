@@ -61,7 +61,7 @@ class Quiz:
 
         percentage = (marks / total_questions) * 100
         self.grades[studentId] = percentage
-        print(f"Student {studentId} scored {percentage:.2f}% on quiz {self.quizID}")
+        
 
     def givefeedback(self, studentId: int, feedback: str) -> None:
         self.feedback[studentId] = feedback

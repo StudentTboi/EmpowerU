@@ -1,7 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
-import app.app_utils as util
-from functools import partial
 
 class Enroll(tk.Frame):
     def __init__(self, master, menu, user, student):
@@ -55,6 +52,7 @@ class Enroll(tk.Frame):
             self.ai_check_bt.deselect()
             self.infosec_check_bt.deselect()
             self.pylearn_check_bt.deselect()
+
         else:
             self.alert_var.set("ERROR")
 

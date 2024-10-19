@@ -14,4 +14,4 @@ Question: What part of AI helps machines understand and process human language?
 Answer: Natural Language Processing (NLP)
 
 Question: What type of AI system only reacts to current events without learning from the past?
-Answer: Reactive Machines
+Answer: Reactive Machines.

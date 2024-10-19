@@ -1,4 +1,7 @@
 import os
+
+from ast import literal_eval
+
 from app.app_user import User
 from app.app_student import StudentUser
 
@@ -30,11 +33,11 @@ class LecturerUser(User):
                     continue
                 
                 lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization = line.strip("\n").split(";")
-                specialization_list = specialization.split("&")
-                
+                specialization = literal_eval(specialization)
+
                 if input_username == username:
                     if input_password == password:
-                        return LecturerUser(lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization_list)
+                        return LecturerUser(lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization)
                     else:
                         return None # or return, or break
         else:

@@ -50,6 +50,9 @@ class CourseMaterials(tk.Frame):
         ai_materials = CourseMenu(self.master, self, self.user, course)
         ai_materials.place(relx=.5, rely=.5, anchor=tk.CENTER)
         self.hide_menu()
+        
+        
+        
 
     def show_menu(self):
         """

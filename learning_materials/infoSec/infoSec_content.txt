@@ -21,4 +21,4 @@ These are only introductions to the concepts
 Information security focuses on three main ideas. Often called the CIA Triad
 1. Confidentiality: Keeping data private. Only authorized individuals should be able to access data. Passwords, encryption, and tools for special access controls help with this.  
 2. Integrity: Ensuring data is correct with no alterations without permission. Important to trust data is accurate. 
-3. Availability: Ensuring right people can access data whenever needed. Such as ensuring systems are working properly and that users can log in without issues. 
+3. Availability: Ensuring right people can access data whenever needed. Such as ensuring systems are working properly and that users can log in without issues!

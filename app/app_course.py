@@ -3,17 +3,17 @@ from app.app_quiz import Quiz
 class Course:
     def __init__(self, course_type):
         if course_type == "AI":
-            filepath = "./learning_materials/ai"
-            self.reading_materials = Course.loadReadingFromFile(f"{filepath}/ai_content.txt")
-            self.quiz = Quiz.loadQuizFromFile(f"{filepath}/ai_quiz.txt")
+            self.filepath = "./learning_materials/ai"
+            self.reading_materials = Course.loadReadingFromFile(f"{self.filepath}/ai_content.txt")
+            self.quiz = Quiz.loadQuizFromFile(f"{self.filepath}/ai_quiz.txt")
         elif course_type == "InfoSec":
-            filepath = "./learning_materials/infoSec"
-            self.reading_materials = Course.loadReadingFromFile(f"{filepath}/infoSec_content.txt")
-            self.quiz = Quiz.loadQuizFromFile(f"{filepath}/infoSec_quiz.txt")
+            self.filepath = "./learning_materials/infoSec"
+            self.reading_materials = Course.loadReadingFromFile(f"{self.filepath}/infoSec_content.txt")
+            self.quiz = Quiz.loadQuizFromFile(f"{self.filepath}/infoSec_quiz.txt")
         elif course_type == "PyLearn":
-            filepath = "./learning_materials/python"
-            self.reading_materials = Course.loadReadingFromFile(f"{filepath}/py_content.txt")
-            self.quiz = Quiz.loadQuizFromFile(f"{filepath}/py_quiz.txt")
+            self.filepath = "./learning_materials/python"
+            self.reading_materials = Course.loadReadingFromFile(f"{self.filepath}/py_content.txt")
+            self.quiz = Quiz.loadQuizFromFile(f"{self.filepath}/py_quiz.txt")
     
     def loadReadingFromFile(filename: str):
         """
