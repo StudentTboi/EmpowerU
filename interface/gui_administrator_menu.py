@@ -11,6 +11,7 @@ from interface.gui_register_lecturer_menu import RegisterLecturers
 from interface.gui_edit_admin_menu import EditAdmins
 from interface.gui_edit_student_menu import EditStudents
 from interface.gui_edit_lecturer_menu import EditLecturers
+from interface.gui_student_progress import StudentProgress
 
 class AdministratorMenu(tk.Frame):
 
@@ -51,6 +52,9 @@ class AdministratorMenu(tk.Frame):
 
         self.edit_lecturer_btn = tk.Button(self, text="Edit lecturer information", command=self.show_edit_lecturer_frame)
         self.edit_lecturer_btn.pack(padx=10, pady=10)
+
+        self.view_progress_btn= tk.Button(self, text="View Student's Progress", command=self.show_student_progress_frame)
+        self.view_progress_btn.pack(padx=10,pady=10)
 
         self.logout_btn = tk.Button(self, text="Log out", command=self.logout)
         self.logout_btn.pack(padx=10, pady=10)
@@ -101,6 +105,14 @@ class AdministratorMenu(tk.Frame):
         """
         edit_lecturers = EditLecturers(self.master, self, self.administrator_user)
         edit_lecturers.place(relx=.5, rely=.5, anchor=tk.CENTER)
+        self.hide_menu()
+
+    def show_student_progress_frame(self):
+        """
+        Method to handle the edit students functionality upon button click.
+        """
+        show_students_progress = StudentProgress(self.master, self, self.administrator_user)
+        show_students_progress.place(relx=.5, rely=.5, anchor=tk.CENTER)
         self.hide_menu()
 
     def logout(self):
