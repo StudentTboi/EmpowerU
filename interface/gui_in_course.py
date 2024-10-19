@@ -3,6 +3,7 @@ import app.app_utils as util
 from functools import partial
 from app.app_course import Course
 from interface.gui_learning_content import ReadingMaterialMenu
+from interface.gui_do_quiz_menu import DoQuiz
 
 class CourseMenu(tk.Frame):
     def __init__(self, master, menu, user, course):
@@ -38,7 +39,9 @@ class CourseMenu(tk.Frame):
         self.place_forget()
 
     def show_quiz_content_page(self):
-        pass
+        quiz_content = DoQuiz(self.master, self, self.user, self.course)
+        quiz_content.place(relx=.5, rely=.5, anchor=tk.CENTER)
+        self.hide_menu()
     
     def return_to_menu(self):
         """
