@@ -41,12 +41,7 @@ class CourseMaterials(tk.Frame):
             self.course_buttons.append(new_button)
 
     def show_chosen_materials(self, courses):
-        if courses =="AI":
-            self.show_course(Course("AI"))
-        elif courses=="InfoSec":
-            self.show_infosec_materials()
-        elif courses=="PyLearn":
-            self.show_pylearn_materials()
+        self.show_course(Course(courses))
 
     def show_course(self, course):
         """

@@ -1,5 +1,7 @@
 import os
 
+from ast import literal_eval
+
 from app.app_user import User
 from app.app_lecturer import LecturerUser
 from app.app_student import StudentUser
@@ -16,7 +18,7 @@ class AdministratorUser(User):
                     print(f"WARNING: A line in {admin_path} is invalid")
                     continue
                 
-                admin_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password = line.strip("\n").split(",")
+                admin_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password = line.strip("\n").split(";")
                 
                 if input_username == username:
                     if input_password == password:
@@ -58,9 +60,9 @@ class AdministratorUser(User):
             for line in lines:
                 if len(line)<6:
                     continue
-                lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization = line.strip("\n").split(",")
-                specialization_list = specialization.split("&")
-                lecturer_obj = LecturerUser(lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization_list)
+                lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization = line.strip("\n").split(";")
+                specialization = literal_eval(specialization)
+                lecturer_obj = LecturerUser(lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization)
                 self.lecturers.append(lecturer_obj)
 
     def import_students_data(self):
@@ -80,9 +82,10 @@ class AdministratorUser(User):
             for line in lines:
                 if len(line)<6:
                     continue
-                student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, enrolled_courses = line.strip("\n").split(",")
-                enrolled_courses_list = enrolled_courses.split("&")
-                student_obj = StudentUser(student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, enrolled_courses_list)
+                student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization, course_progress = line.strip("\n").split(";")
+                specialization = literal_eval(specialization)
+                course_progress = literal_eval(course_progress)
+                student_obj = StudentUser(student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization, course_progress)
                 self.students.append(student_obj)
 
     def import_admins_data(self):
@@ -102,7 +105,7 @@ class AdministratorUser(User):
             for line in lines:
                 if len(line)<6:
                     continue
-                admin_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password = line.strip("\n").split(",")
+                admin_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password = line.strip("\n").split(";")
                 admin_obj = AdministratorUser(admin_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
                 self.admins.append(admin_obj)
 
@@ -127,7 +130,7 @@ class AdministratorUser(User):
         student_obj = StudentUser(student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
         
         filepath = "./authenticate/students.txt"
-        new_student_line = f"{student_id},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},\n"
+        new_student_line = f"{student_id};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password},\n"
         
         if util.append_to_file(filepath, new_student_line):
             self.students.append(student_obj)
@@ -156,7 +159,7 @@ class AdministratorUser(User):
         lecturer_obj = LecturerUser(lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization)
         specialization_combined = '&'.join(specialization)
         filepath = "./authenticate/lecturers.txt"
-        new_lecturer_line = f"{lecturer_id},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},{specialization_combined}\n"
+        new_lecturer_line = f"{lecturer_id};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password};{specialization_combined}\n"
         
         if util.append_to_file(filepath, new_lecturer_line):
             self.students.append(lecturer_obj)
@@ -181,11 +184,13 @@ class AdministratorUser(User):
 
         # Create the Student object
         # Assume no skips in student ID
+        self.import_admins_data()
+        
         admin_id = "a" + str(len(self.admins) + 1).zfill(2)
         admin_obj = AdministratorUser(admin_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
         
         filepath = "./authenticate/admins.txt"
-        new_admin_line = f"{admin_id},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},\n"
+        new_admin_line = f"{admin_id};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password},\n"
         
         if util.append_to_file(filepath, new_admin_line):
             self.admins.append(admin_obj)
@@ -195,18 +200,37 @@ class AdministratorUser(User):
     
     def edit_admin_data(self, admin_to_edit, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
         filepath = "./authenticate/admins.txt"
-        new_admin_line = f"{admin_to_edit.uid},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password}\n"
+        new_admin_line = f"{admin_to_edit.uid};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password}\n"
         
         return util.overwrite_file_at_line(filepath, int(admin_to_edit.uid[1:])-1,new_admin_line)
 
-    def edit_student_data(self, student_to_edit, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
+    def edit_student_data(self, student_to_edit, first_name=None, last_name=None, date_of_birth=None, contact_num=None, contact_email=None, username=None, password=None, specialization=[], course_progress=[]):
         filepath = "./authenticate/students.txt"
-        new_student_line = f"{student_to_edit.uid},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},\n"
+        if first_name == None:
+            first_name = student_to_edit.first_name
+        if last_name == None:
+            last_name = student_to_edit.last_name
+        if date_of_birth == None:
+            date_of_birth = student_to_edit.date_of_birth
+        if contact_num == None:
+            contact_num = student_to_edit.contact_num
+        if contact_email == None:
+            contact_email = student_to_edit.contact_email
+        if username == None:
+            username = student_to_edit.username
+        if password == None:
+            password = student_to_edit.password
+        if specialization == []:
+            specialization = student_to_edit.specilization
+        if course_progress == []:
+            course_progress = student_to_edit.course_progress
+    
+        new_student_line = f"{student_to_edit.uid};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password};{specialization};{course_progress}\n"
         
         return util.overwrite_file_at_line(filepath, int(student_to_edit.uid[1:])-1,new_student_line)
 
     def edit_lecturer_data(self, lecturer_to_edit, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
         filepath = "./authenticate/lecturers.txt"
-        new_lecturer_line = f"{lecturer_to_edit.uid},{first_name},{last_name},{date_of_birth},{contact_num},{contact_email},{username},{password},\n"
+        new_lecturer_line = f"{lecturer_to_edit.uid};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password},\n"
         
         return util.overwrite_file_at_line(filepath, int(lecturer_to_edit.uid[1:])-1,new_lecturer_line)

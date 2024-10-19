@@ -29,7 +29,7 @@ class LecturerUser(User):
                     print(f"WARNING: A line in {lecturer_path} is invalid")
                     continue
                 
-                lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization = line.strip("\n").split(",")
+                lecturer_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization = line.strip("\n").split(";")
                 specialization_list = specialization.split("&")
                 
                 if input_username == username:

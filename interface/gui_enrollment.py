@@ -50,7 +50,7 @@ class Enroll(tk.Frame):
         if self.pylearn_check_var.get() == 1:
             specialization_list.append("PyLearn")
 
-        if self.user.edit_student_data(self.student, self.student.first_name,self.student.last_name, self.student.date_of_birth,self.student.contact_num, self.student.contact_email, self.student.username, self.student.password,specialization_list):
+        if self.user.edit_student_data(self.student, specialization=specialization_list):
             self.alert_var.set("Successfully enrolled student's unit")
             self.ai_check_bt.deselect()
             self.infosec_check_bt.deselect()
