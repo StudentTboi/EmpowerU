@@ -40,7 +40,7 @@ class Quiz:
                 quizID = line.split("QuizID:")[1].strip()
             elif line.startswith("Title:"):
                 title = line.split("Title:")[1].strip()
-            elif line.startswith("Questions:"):
+            elif line.startswith("Question:"):
                 questions.append(line.split("Question:")[1].strip())
             elif line.startswith("Answer:"):
                 answers.append(line.split("Answer:")[1].strip())
