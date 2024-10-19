@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 import app.app_utils as util
 from functools import partial
 
@@ -9,25 +10,35 @@ class Progress(tk.Frame):
         self.menu=menu
         self.user = user
 
-        self.label1 = tk.Label(self, text="Choose one of the following:")
-        self.label1.pack(padx=10, pady=10)
-
-
-        self.search_btn = tk.Button(self, text="Learning Content", command=self.show_learning_content_page)
-        self.search_btn.pack(padx=10, pady=10)
-
-        self.class_btn = tk.Button(self, text="Quiz", command=self.show_quiz_content_page)
-        self.class_btn.pack(padx=10, pady=10)
         
+        self.show_progress_detail()
+
         # Return to menu button
         self.return_button = tk.Button(self, text="Return to course menu", command=self.return_to_menu)
-        self.return_button.pack(padx=10, pady=10)
+        self.return_button.grid(row=30, columnspan=2, padx=10, pady=10, sticky=tk.E)
 
-    def show_learning_content_page(self):
-        pass
+    def show_progress_detail(self):
+        for index,courses in enumerate(self.user.specialization):
+            content_detail = tk.Label(master=self, text=f"{courses} content")
+            content_detail.grid(row=index*2+1, column=0, padx=10, pady=10, sticky=tk.E)
+            
+            content_progress_bar = ttk.Progressbar(self)
+            # Updating the progress bar
+            content_progress_bar['value'] = 2/4*100
+            # Adding the progress bar to the window
+            content_progress_bar.grid(row=index*2+1, column=1, padx=10, pady=10, sticky=tk.E)
 
-    def show_quiz_content_page(self):
-        pass
+            quiz_detail = tk.Label(master=self, text=f"{courses} quiz")
+            quiz_detail.grid(row=index*2+2, column=0, padx=10, pady=10, sticky=tk.E)
+
+            quiz_progress_bar = ttk.Progressbar(self)
+            # Updating the progress bar
+            quiz_progress_bar['value'] = 1/5*100
+            # Adding the progress bar to the window
+            quiz_progress_bar.grid(row=index*2+2, column=1, padx=10, pady=10, sticky=tk.E)
+
+
+    
     
     def return_to_menu(self):
         """
