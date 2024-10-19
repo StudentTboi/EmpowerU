@@ -33,6 +33,7 @@ class StudentUser(User):
         super().__init__(uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
         self.enrolled_courses = enrolled_courses
         self.import_course_data()
+        self.progreess={}
     
     def import_course_data(self):
         return
