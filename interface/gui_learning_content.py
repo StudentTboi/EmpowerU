@@ -11,12 +11,18 @@ class ReadingMaterialMenu(tk.Frame):
         self.user = user
         self.course = course
 
-        self.label1 = tk.Label(self, text=self.course.reading_materials)
-        self.label1.pack(padx=10, pady=10)
+        mylist = tk.Text(self)
+        # scrollbar = tk.Scrollbar(mylist, orient=tk.VERTICAL, command=mylist.yview )
+        # scrollbar.grid(row=0, column=1, sticky=tk.NS)
+        # mylist.configure(yscrollcommand = scrollbar.set )
+        mylist.grid(row=0, column=0, sticky="news")
+        for line in course.reading_materials:
+            mylist.insert(tk.END, line)
         
         # Return to menu button
         self.return_button = tk.Button(self, text="Return to course menu", command=self.return_to_menu)
-        self.return_button.pack(padx=10, pady=10)
+        self.return_button.grid(row=1, columnspan=2, sticky=tk.S, padx=10, pady=10)
+
 
     def return_to_menu(self):
         """
