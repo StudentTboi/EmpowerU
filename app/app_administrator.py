@@ -224,7 +224,17 @@ class AdministratorUser(User):
             specialization = student_to_edit.specilization
         if course_progress == []:
             course_progress = student_to_edit.course_progress
-    
+
+        student_to_edit.first_name = first_name
+        student_to_edit.last_name = last_name
+        student_to_edit.date_of_birth = date_of_birth
+        student_to_edit.contact_num = contact_num
+        student_to_edit.contact_email = contact_email
+        student_to_edit.username = username
+        student_to_edit.password = password
+        student_to_edit.specialization = specialization
+        student_to_edit.course_progress = course_progress
+        
         new_student_line = f"{student_to_edit.uid};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password};{specialization};{course_progress}\n"
         
         return util.overwrite_file_at_line(filepath, int(student_to_edit.uid[1:])-1,new_student_line)
