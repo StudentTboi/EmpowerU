@@ -13,7 +13,7 @@ These are only introductions to the concepts
 - Cryptography: Utilizing code to protect messages only the person meant to receive to read it.
 - Disaster Recovery: Having a plan for systems to get up and running again after sudden events occur (such as natural disasters, leading to a black out or a cyber attack).
 - Incident Response: Plans for dealing with cyberattacks or data breaches.
-- Infrastructure Security: The process of protecting an organization’s network, through hardware and software protection practices.
+- Infrastructure Security: The process of protecting an organization's network, through hardware and software protection practices.
 - Vulnerability Management: Finding and fixing weakness in systems before they cause harm
 
 [CIA Triad - Three Important Part of InfoSec]
