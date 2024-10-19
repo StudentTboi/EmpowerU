@@ -26,6 +26,30 @@ class DoQuiz(tk.Frame):
             self.question_label[index].grid(row=index*2+1, column=0, sticky=tk.W)
             self.answer_entry[index].grid(row=index*2+2, column=0, sticky=tk.W)
         self.pack()
+
+        self.submit_button = tk.Button(master=self, text="Submit", command=self.submit_quiz)
+        self.submit_button.grid(row=8, column=0, padx=10, pady=10, sticky=tk.E)
+
+        
+        # Return to menu button
+        self.return_button = tk.Button(self, text="Return to menu", command=self.return_to_menu)
+        self.return_button.grid(row=10, columnspan=2, padx=10, pady=10, sticky=tk.E)
+
+    def submit_quiz(self):
+        pass
+    
+    def return_to_menu(self):
+        """
+        This method handles the GUI logic to return to the receptionist's menu.
+
+        Parameters:
+        (None)
+
+        Returns:
+        (None)
+        """
+        self.place_forget()
+        self.student_menu.place(relx=.5, rely=.5, anchor=tk.CENTER)
             
             
         
