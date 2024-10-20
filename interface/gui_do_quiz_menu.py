@@ -19,6 +19,8 @@ class DoQuiz(tk.Frame):
         self.answer_entry = []
         self.answer_var = []
         self.question_label = []
+        
+        
         for index,question in enumerate(self.quiz.questions):
             self.question_label.append(tk.Label(master=self, text=question, justify="left"))
             self.answer_var.append(tk.StringVar(master=self))
@@ -30,7 +32,10 @@ class DoQuiz(tk.Frame):
         self.submit_button = tk.Button(master=self, text="Submit", command=self.submit_quiz)
         self.submit_button.grid(row=2 * len(self.quiz.questions), column=0, padx=10, pady=10, sticky=tk.E)
 
-        
+        # Alert variable and label widget
+        self.alert_var = tk.StringVar(master=self)
+        self.alert_label = tk.Label(master=self, textvariable=self.alert_var)
+        self.alert_label.grid(row=2 * len(self.quiz.questions)-1, column=0, sticky=tk.S, padx=10, pady=10)
         # Return to menu button
         self.return_button = tk.Button(self, text="Return to menu", command=self.return_to_menu)
         self.return_button.grid(row=2 * len(self.quiz.questions), column=1, padx=10, pady=10, sticky=tk.E)
@@ -40,6 +45,9 @@ class DoQuiz(tk.Frame):
         for answer_var in self.answer_var:
             answers.append(answer_var.get())
         self.quiz.gradeQuiz(answers, self.student_user.uid)
+        self.alert_var.set("Submitted Successfully")
+        for num in range(len(self.answer_entry)):
+            self.answer_entry[num].delete(0,"end")
     
     def return_to_menu(self):
         """
