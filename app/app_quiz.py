@@ -79,7 +79,7 @@ class Quiz:
         percentage = (marks / total_questions) * 100
         self.grades[studentId] = percentage
         
-        new_line = f"{studentId};{percentage}"
+        new_line = f"{studentId};{percentage}\n"
 
         util.append_to_file(self.grade_filename, new_line)
 
