@@ -35,10 +35,10 @@ Platform to help adult learners in programming information security through inte
 ---
 
 ## TODO
-- [ ]Finish implementing all the options for teachers, such as registering a student and creating a weekly scheuled class
-- [ ]Create a system / class to manage a weekly class schedule for upcoming lectures / tests
-- [ ]There are certain paths when navigating tkinter interface that will lead to the user being softlocked and forced to shutdown fix this
-- [ ]Disucssion forum page for collaborators to comminucate with each other and teachers
-- [ ]Security measures such as the implementation of okta verify / email checks
-- [ ]Certain UI bugs requires fixing for a more fleshed out look
+- [ ] Finish implementing all the options for teachers, such as registering a student and creating a weekly scheuled class
+- [ ] Create a system / class to manage a weekly class schedule for upcoming lectures / tests
+- [ ] There are certain paths when navigating tkinter interface that will lead to the user being softlocked and forced to shutdown fix this
+- [ ] Disucssion forum page for collaborators to comminucate with each other and teachers
+- [ ] Security measures such as the implementation of okta verify / email checks
+- [ ] Certain UI bugs requires fixing for a more fleshed out look
   
