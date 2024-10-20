@@ -33,7 +33,7 @@ class DoQuiz(tk.Frame):
         
         # Return to menu button
         self.return_button = tk.Button(self, text="Return to menu", command=self.return_to_menu)
-        self.return_button.grid(row=2 * len(self.quiz.questions) + 1, columnspan=2, padx=10, pady=10, sticky=tk.E)
+        self.return_button.grid(row=2 * len(self.quiz.questions), column=1, padx=10, pady=10, sticky=tk.E)
 
     def submit_quiz(self):
         answers = []
