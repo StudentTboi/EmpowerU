@@ -29,16 +29,18 @@ class DoQuiz(tk.Frame):
             self.answer_entry[index].grid(row=index*2+2, column=0, sticky=tk.W)
         self.pack()
 
-        self.submit_button = tk.Button(master=self, text="Submit", command=self.submit_quiz)
-        self.submit_button.grid(row=2 * len(self.quiz.questions), column=0, padx=10, pady=10, sticky=tk.E)
-
         # Alert variable and label widget
         self.alert_var = tk.StringVar(master=self)
         self.alert_label = tk.Label(master=self, textvariable=self.alert_var)
-        self.alert_label.grid(row=2 * len(self.quiz.questions)-1, column=0, sticky=tk.S, padx=10, pady=10)
+        self.alert_label.grid(row=2 * len(self.quiz.questions), column=0, sticky=tk.S, padx=10, pady=10)
+        
+        self.submit_button = tk.Button(master=self, text="Submit", command=self.submit_quiz)
+        self.submit_button.grid(row=2 * len(self.quiz.questions), column=1, padx=10, pady=10, sticky=tk.E)
+
+        
         # Return to menu button
         self.return_button = tk.Button(self, text="Return to menu", command=self.return_to_menu)
-        self.return_button.grid(row=2 * len(self.quiz.questions), column=1, padx=10, pady=10, sticky=tk.E)
+        self.return_button.grid(row=2 * len(self.quiz.questions), column=2, padx=10, pady=10, sticky=tk.E)
 
     def submit_quiz(self):
         answers = []
