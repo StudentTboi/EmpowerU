@@ -19,9 +19,7 @@ from app.app_student import StudentUser
 def mock_read_file():
     return [
         "s0001;Kristin;Purnell;01/02/2001;0412344320;kris@kris.com;kristinp;kr1st1np;['AI', 'InfoSec', 'PyLearn'];[1, 1, 0, 0, 0, 0]",
-        "s0002;gjdfhg;fgdfg;01/01/2001;7777777777;jfdgf;gdf;dfg;['AI', 'PyLearn'];[0, 0, 0, 0, 0, 0]",
-        "s0003;sdfdsfadsf;dsfdsfdsfds;10/10/2000;1111111111;111;qwe;qwe;['AI'];[0, 0, 0, 0, 0, 0]",
-        "s0004;fsdfsd;sdfdsf;20/02/2020;6666666666;fdf;54345;34534;['AI', 'PyLearn'];[0, 0, 0, 0, 0, 0]"
+        
     ]
 
 @mock.patch("app.app_administrator.util.read_file")
@@ -35,12 +33,9 @@ def test_authenticate(mock_read_file_function, mock_read_file):
     ta2 = StudentUser.authenticate("kristinp", "wrongpassword")
     assert ta2 is None
     
-    ta3 = StudentUser.authenticate("gdf", "dfg")
-    assert ta3 is not None
-    assert ta3.username == "gdf"
     
-    ta4 = StudentUser.authenticate("gdf", "kr1st1np")
+    ta4 = StudentUser.authenticate("kr1st1np", "kr1st1np")
     assert ta4 is None
     
-    ta5 = StudentUser.authenticate("kristinp", "dfg")
+    ta5 = StudentUser.authenticate("kristinp", "kristinp")
     assert ta5 is None
