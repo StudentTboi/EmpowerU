@@ -194,7 +194,7 @@ class AdministratorUser(User):
         if password == None:
             password = student_to_edit.password
         if specialization == []:
-            specialization = student_to_edit.specilization
+            specialization = student_to_edit.specialization
         if course_progress == []:
             course_progress = student_to_edit.course_progress
         student_to_edit.first_name = first_name
