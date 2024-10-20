@@ -41,4 +41,4 @@ Platform to help adult learners in programming information security through inte
 - [ ] Disucssion forum page for collaborators to comminucate with each other and teachers
 - [ ] Security measures such as the implementation of okta verify / email checks
 - [ ] Certain UI bugs requires fixing for a more fleshed out look
-  
+- [ ] ~~Fix up the quiz attempts to actually be responsive and submit to actually submit~~
