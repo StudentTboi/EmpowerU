@@ -1,6 +1,4 @@
 """
-FIT1056 2024 Semester 2
-Programming Concepts Task 5
 This file contains the definitions for common utility functions.
 """
 
@@ -33,6 +31,19 @@ def read_file(filepath):
             return lines
         
 def overwrite_file_at_line(filepath, line_number, contents):
+    """
+    This function overwrites the contents to a file at the specified line.
+    UTF-8 encoding is expected.
+    (More about UTF-8: https://en.wikipedia.org/wiki/UTF-8)
+
+    Parameters:
+    - filepath: str, path of the file to have contents overwritten
+    - line_number: str, line number to be overwritten
+    - contents: str, to be overwritten to the file
+
+    Returns:
+    - bool: True if it is successfully overwritten, False otherwise
+    """
     successful_overwrite = False
     try:
         with open(file=filepath, mode="r", encoding="utf8") as f:
@@ -78,10 +89,17 @@ def append_to_file(filepath, contents):
         return successful_append
 
 def is_valid_first_name(input_first_name):
-    if len(input_first_name) > 0:
-        return True
-    else:
-        return False
+    """
+    Checks if the first name is non-empty.
+
+    Parameters:
+    - input_first_name: str
+
+    Returns:
+    - bool: True if valid, False otherwise.
+    """
+    return bool(input_first_name)
+
 
 def is_valid_time_format(input_time_value):
     """
@@ -105,14 +123,17 @@ def is_valid_time_format(input_time_value):
     return False    
 
 def is_valid_contact_number(input_contact_number):
-    all_valid_digits = True
-    for char in input_contact_number:
-        if char not in "0123456789":
-            all_valid_digits = False
-            break
-    if len(input_contact_number) == 10 and all_valid_digits:
-        return True
-    return False
+    """
+    Checks if the contact number contains exactly 10 digits.
+
+    Parameters:
+    - input_contact_number: str
+
+    Returns:
+    - bool: True if valid, False otherwise.
+    """
+    return input_contact_number.isdigit() and len(input_contact_number) == 10
+
 
 
 def is_valid_date_format(input_date_value):
