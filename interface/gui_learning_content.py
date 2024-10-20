@@ -11,6 +11,12 @@ class ReadingMaterialMenu(tk.Frame):
         self.user = user
         self.course = course
 
+        master.rowconfigure(0, weight=1)
+        master.columnconfigure(0, weight=1)
+ 
+        self.rowconfigure(0, weight=1)
+        self.columnconfigure(0, weight=1)
+                
         mylist = tk.Text(self)
         # scrollbar = tk.Scrollbar(mylist, orient=tk.VERTICAL, command=mylist.yview )
         # scrollbar.grid(row=0, column=1, sticky=tk.NS)
@@ -34,5 +40,5 @@ class ReadingMaterialMenu(tk.Frame):
         Returns:
         (None)
         """
-        self.place_forget()
+        self.grid_forget()
         self.menu.place(relx=.5, rely=.5, anchor=tk.CENTER)

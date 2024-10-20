@@ -1,4 +1,4 @@
-s0001;Kristin;Purnell;01/02/2001;0412344321;kris@kris.com;kristinp;kr1st1np;['AI', 'InfoSec', 'PyLearn'];[0,0,0,0,0,0]
+s0001;Kristin;Purnell;01/02/2001;0412344320;kris@kris.com;kristinp;kr1st1np;['AI', 'InfoSec', 'PyLearn'];[0, 0, 0, 0, 0, 0]
 s0002;gjdfhg;fgdfg;01/01/2001;7777777777;jfdgf;gdf;dfg;['AI', 'PyLearn'];[0, 0, 0, 0, 0, 0]
 s0003;sdfdsfadsf;dsfdsfdsfds;10/10/2000;1111111111;111;qwe;qwe;['AI'];[0, 0, 0, 0, 0, 0]
 s0004;fsdfsd;sdfdsf;20/02/2020;6666666666;fdf;54345;34534;['AI', 'PyLearn'];[0, 0, 0, 0, 0, 0]

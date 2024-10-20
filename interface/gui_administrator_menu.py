@@ -32,10 +32,10 @@ class AdministratorMenu(tk.Frame):
         self.administrator_user = administrator_user
 
         self.welcome_label = tk.Label(self, text=f"Welcome in, {administrator_user.first_name}!")
-        self.welcome_label.pack(padx=10, pady=10)
+        self.welcome_label.pack(padx=10)
 
         self.label1 = tk.Label(self, text="Choose one of the following:")
-        self.label1.pack(padx=10, pady=10)
+        self.label1.pack(padx=10)
 
         self.register_student_btn = tk.Button(self, text="Register a student", command=self.show_register_student_frame)
         self.register_student_btn.pack(padx=10, pady=10)

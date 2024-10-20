@@ -2,17 +2,32 @@ QuizID: Quiz003
 Title: Python Programming Basics
 
 Question: What is Python?
-Answer: A programming language
+A. A programming language
+B. A type of snake
+C. A software development tool
+D. A cloud storage service
+Answer: A
 
 Question: What is a variable?
-Answer: A storage for data
+A. A mathematical equation
+B. A storage for data
+C. A function
+D. A type of loop
+Answer: B
 
 Question: What is a function in Python?
-Answer: A block of reusable code
+A. A block of reusable code
+B. A way to store data
+C. A Python keyword
+D. A loop in Python
+Answer: A
 
 Question: How do you print "Hello, World!" in Python?
-Answer: print("Hello, World!")
+A. echo "Hello, World!"
+B. console.log("Hello, World!")
+C. printf("Hello, World!")
+D. print("Hello, World!")
+Answer: D
 
 Question: What symbol is used for comments in Python?
 Answer: #
-

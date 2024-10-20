@@ -2,16 +2,36 @@ QuizID: Quiz002
 Title: Information Security Basics
 
 Question: What is Information Security (InfoSec)?
-Answer: Protecting important data from being stolen, misused, or destroyed
+A. Protecting important data from being stolen, misused, or destroyed
+B. Writing programs to store data
+C. Securing hardware from physical damage
+D. Developing software to handle sensitive information
+Answer: A
 
 Question: What does the 'C' in the CIA Triad stand for?
-Answer: Confidentiality
+A. Control
+B. Confidentiality
+C. Consistency
+D. Compliance
+Answer: B
 
 Question: What is Application Security?
-Answer: Protecting programs and the data they handle
+A. Securing physical applications in an office
+B. Protecting programs and the data they handle
+C. Developing applications for security services
+D. Auditing hardware systems
+Answer: B
 
 Question: What is Cryptography?
-Answer: Utilizing code to protect messages only the person meant to receive can read
+A. Writing programs to handle encrypted data
+B. Utilizing code to protect messages only the person meant to receive can read
+C. A method to write secure software
+D. A system to back up data
+Answer: B
 
 Question: What is the goal of Disaster Recovery in InfoSec?
-Answer: To get systems up and running after sudden events
+A. To permanently close down affected systems
+B. To create backup copies of important files
+C. To ensure the destruction of compromised data
+D. To get systems up and running after sudden events
+Answer: D

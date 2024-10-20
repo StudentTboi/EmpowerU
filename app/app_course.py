@@ -2,18 +2,19 @@ from app.app_quiz import Quiz
 
 class Course:
     def __init__(self, course_type):
+        self.course_type = course_type
         if course_type == "AI":
             self.filepath = "./learning_materials/ai"
             self.reading_materials = Course.loadReadingFromFile(f"{self.filepath}/ai_content.txt")
-            self.quiz = Quiz.loadQuizFromFile(f"{self.filepath}/ai_quiz.txt")
+            self.quiz = Quiz.loadQuizFromFile(f"{self.filepath}/ai_quiz.txt", f"{self.filepath}/quiz_grade.txt")
         elif course_type == "InfoSec":
             self.filepath = "./learning_materials/infoSec"
             self.reading_materials = Course.loadReadingFromFile(f"{self.filepath}/infoSec_content.txt")
-            self.quiz = Quiz.loadQuizFromFile(f"{self.filepath}/infoSec_quiz.txt")
+            self.quiz = Quiz.loadQuizFromFile(f"{self.filepath}/infoSec_quiz.txt", f"{self.filepath}/quiz_grade.txt")
         elif course_type == "PyLearn":
             self.filepath = "./learning_materials/python"
             self.reading_materials = Course.loadReadingFromFile(f"{self.filepath}/py_content.txt")
-            self.quiz = Quiz.loadQuizFromFile(f"{self.filepath}/py_quiz.txt")
+            self.quiz = Quiz.loadQuizFromFile(f"{self.filepath}/py_quiz.txt", f"{self.filepath}/quiz_grade.txt")
     
     def loadReadingFromFile(filename: str):
         """

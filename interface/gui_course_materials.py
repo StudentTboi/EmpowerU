@@ -30,14 +30,14 @@ class CourseMaterials(tk.Frame):
 
         # Return to menu button
         self.return_button = tk.Button(self, text="Return to menu", command=self.return_to_menu)
-        self.return_button.grid(row=10, column=1, padx=10, pady=10, sticky=tk.E)
+        self.return_button.grid(row=10, columnspan=2, padx=10, pady=10, sticky=tk.E)
             
     def show_materials(self):
         self.course_buttons = []
         for index,courses in enumerate(self.user.specialization):
             show_chosen_materials_with_user = partial(self.show_chosen_materials,courses)
             new_button = tk.Button(master=self, text=f"{courses}", command=show_chosen_materials_with_user)
-            new_button.grid(row=index+3, column=0, padx=10, pady=10, sticky=tk.E)
+            new_button.grid(row=index+3, columnspan=2, padx=10, pady=10, sticky=tk.E)
             self.course_buttons.append(new_button)
 
     def show_chosen_materials(self, courses):

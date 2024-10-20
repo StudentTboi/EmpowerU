@@ -21,7 +21,6 @@ class CourseMenu(tk.Frame):
         self.label1 = tk.Label(self, text="Choose one of the following:")
         self.label1.pack(padx=10, pady=10)
 
-
         self.search_btn = tk.Button(self, text="Learning Content", command=self.show_learning_content_page)
         self.search_btn.pack(padx=10, pady=10)
 
@@ -41,7 +40,7 @@ class CourseMenu(tk.Frame):
             editor_page.place(relx=.5, rely=.5, anchor=tk.CENTER)
         elif isinstance(self.user, StudentUser):
             reading_materials = ReadingMaterialMenu(self.master, self, self.user, self.course)
-            reading_materials.place(relx=.5, rely=.5, anchor=tk.CENTER)
+            reading_materials.grid(row=0, column=0, sticky='WENS')
         self.hide_menu()
 
     def hide_menu(self):

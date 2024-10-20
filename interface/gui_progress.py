@@ -12,21 +12,27 @@ class Progress(tk.Frame):
 
         self.user_detail_label = tk.Label(self, text=f" {user.first_name} {user.last_name}'s Progress")
         self.user_detail_label.grid(row=0, columnspan=2, padx=10, pady=10, sticky=tk.E)
-        
-        self.show_progress_detail()
 
+        self.show_progress_detail()
+        
         # Return to menu button
         self.return_button = tk.Button(self, text="Return to course menu", command=self.return_to_menu)
         self.return_button.grid(row=30, columnspan=2, padx=10, pady=10, sticky=tk.E)
 
     def show_progress_detail(self):
+        course_name_to_index = {
+            "AI" : 0,
+            "InfoSec" : 1,
+            "PyLearn": 2,
+        }
         for index,courses in enumerate(self.user.specialization):
+            courses.strip()
             content_detail = tk.Label(master=self, text=f"{courses} content")
             content_detail.grid(row=index*2+1, column=0, padx=10, pady=10, sticky=tk.E)
             
             content_progress_bar = ttk.Progressbar(self)
             # Updating the progress bar
-            content_progress_bar['value'] = 2/4*100
+            content_progress_bar['value'] = (self.user.course_progress[course_name_to_index[courses]*2])/1*100
             # Adding the progress bar to the window
             content_progress_bar.grid(row=index*2+1, column=1, padx=10, pady=10, sticky=tk.E)
 
@@ -35,7 +41,8 @@ class Progress(tk.Frame):
 
             quiz_progress_bar = ttk.Progressbar(self)
             # Updating the progress bar
-            quiz_progress_bar['value'] = 1/5*100
+
+            quiz_progress_bar['value'] = (self.user.course_progress[course_name_to_index[courses]*2+1])/1*100
             # Adding the progress bar to the window
             quiz_progress_bar.grid(row=index*2+2, column=1, padx=10, pady=10, sticky=tk.E)
 

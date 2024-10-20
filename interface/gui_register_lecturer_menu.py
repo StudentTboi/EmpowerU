@@ -89,15 +89,15 @@ class RegisterLecturers(tk.Frame):
         self.password_label.grid(row=2, column=3, padx=10, pady=10, sticky=tk.E)
         self.ai_check_var = tk.IntVar()
         self.ai_check_bt = tk.Checkbutton(master=self, text='Artificial Intelligence', variable=self.ai_check_var, onvalue=1, offvalue=0)
-        self.ai_check_bt.grid(row=3, column=3, padx=10, pady=10, sticky=tk.E)
+        self.ai_check_bt.grid(row=3, column=3, padx=10, pady=10, sticky=tk.W)
         
         self.infosec_check_var = tk.IntVar()
         self.infosec_check_bt = tk.Checkbutton(master=self, text='Information Security', variable=self.infosec_check_var, onvalue=1, offvalue=0)
-        self.infosec_check_bt.grid(row=4, column=3, padx=10, pady=10, sticky=tk.E)
+        self.infosec_check_bt.grid(row=4, column=3, padx=10, pady=10, sticky=tk.W)
         
         self.pylearn_check_var = tk.IntVar()
         self.pylearn_check_bt = tk.Checkbutton(master=self, text='Python Learning', variable=self.pylearn_check_var, onvalue=1, offvalue=0)
-        self.pylearn_check_bt.grid(row=5, column=3, padx=10, pady=10, sticky=tk.E)
+        self.pylearn_check_bt.grid(row=5, column=3, padx=10, pady=10, sticky=tk.W)
 
         # Alert variable and label widget
         self.alert_var = tk.StringVar(master=self)

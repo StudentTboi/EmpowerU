@@ -25,9 +25,8 @@ class HomePage(tk.Frame):
         - image_path: str, path of the logo image file
         """
         super().__init__(master=master)
-        self.master = master 
         self.image_path = image_path
-
+        
         # Image obtained from: 
         # https://pngtree.com/freepng/red-blue-separation-line-musical-music-logo_6244544.html
 

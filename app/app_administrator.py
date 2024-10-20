@@ -203,7 +203,7 @@ class AdministratorUser(User):
         
         return util.overwrite_file_at_line(filepath, int(admin_to_edit.uid[1:])-1,new_admin_line)
 
-    def edit_student_data(self, student_to_edit, first_name=None, last_name=None, date_of_birth=None, contact_num=None, contact_email=None, username=None, password=None, specialization=[], course_progress=[]):
+    def edit_student_data(self, student_to_edit, first_name=None, last_name=None, date_of_birth=None, contact_num=None, contact_email=None, username=None, password=None, specialization=[], course_progress=[0,0,0,0,0,0]):
         filepath = "./authenticate/students.txt"
         if first_name == None:
             first_name = student_to_edit.first_name
@@ -220,8 +220,8 @@ class AdministratorUser(User):
         if password == None:
             password = student_to_edit.password
         if specialization == []:
-            specialization = student_to_edit.specilization
-        if course_progress == []:
+            specialization = student_to_edit.specialization
+        if course_progress == [0,0,0,0,0,0]:
             course_progress = student_to_edit.course_progress
 
         student_to_edit.first_name = first_name
@@ -238,8 +238,34 @@ class AdministratorUser(User):
         
         return util.overwrite_file_at_line(filepath, int(student_to_edit.uid[1:])-1,new_student_line)
 
-    def edit_lecturer_data(self, lecturer_to_edit, first_name, last_name, date_of_birth, contact_num, contact_email, username, password):
+    def edit_lecturer_data(self, lecturer_to_edit, first_name=None, last_name=None, date_of_birth=None, contact_num=None, contact_email=None, username=None, password=None, specialization=[]):
+        if first_name == None:
+            first_name = lecturer_to_edit.first_name
+        if last_name == None:
+            last_name = lecturer_to_edit.last_name
+        if date_of_birth == None:
+            date_of_birth = lecturer_to_edit.date_of_birth
+        if contact_num == None:
+            contact_num = lecturer_to_edit.contact_num
+        if contact_email == None:
+            contact_email = lecturer_to_edit.contact_email
+        if username == None:
+            username = lecturer_to_edit.username
+        if password == None:
+            password = lecturer_to_edit.password
+        if specialization == []:
+            specialization = lecturer_to_edit.specilization
+
+        lecturer_to_edit.first_name = first_name
+        lecturer_to_edit.last_name = last_name
+        lecturer_to_edit.date_of_birth = date_of_birth
+        lecturer_to_edit.contact_num = contact_num
+        lecturer_to_edit.contact_email = contact_email
+        lecturer_to_edit.username = username
+        lecturer_to_edit.password = password
+        lecturer_to_edit.specialization = specialization
+        
         filepath = "./authenticate/lecturers.txt"
-        new_lecturer_line = f"{lecturer_to_edit.uid};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password},\n"
+        new_lecturer_line = f"{lecturer_to_edit.uid};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password};{specialization}\n"
         
         return util.overwrite_file_at_line(filepath, int(lecturer_to_edit.uid[1:])-1,new_lecturer_line)

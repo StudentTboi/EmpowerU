@@ -13,21 +13,21 @@ class Enroll(tk.Frame):
 
         # Specialization label widget
         self.password_label = tk.Label(master=self, text="Specialization:")
-        self.password_label.grid(row=2, column=3, padx=10, pady=10, sticky=tk.E)
+        self.password_label.grid(row=2, columnspan=2, padx=10, pady=10, sticky=tk.S)
         self.ai_check_var = tk.IntVar()
         self.ai_check_bt = tk.Checkbutton(master=self, text='Artificial Intelligence', variable=self.ai_check_var, onvalue=1, offvalue=0)
-        self.ai_check_bt.grid(row=3, column=3, padx=10, pady=10, sticky=tk.E)
+        self.ai_check_bt.grid(row=3, columnspan=2, padx=10, pady=10, sticky=tk.W)
         
         self.infosec_check_var = tk.IntVar()
         self.infosec_check_bt = tk.Checkbutton(master=self, text='Information Security', variable=self.infosec_check_var, onvalue=1, offvalue=0)
-        self.infosec_check_bt.grid(row=4, column=3, padx=10, pady=10, sticky=tk.E)
+        self.infosec_check_bt.grid(row=4, columnspan=2, padx=10, pady=10, sticky=tk.W)
         
         self.pylearn_check_var = tk.IntVar()
         self.pylearn_check_bt = tk.Checkbutton(master=self, text='Python Learning', variable=self.pylearn_check_var, onvalue=1, offvalue=0)
-        self.pylearn_check_bt.grid(row=5, column=3, padx=10, pady=10, sticky=tk.E)
+        self.pylearn_check_bt.grid(row=5, columnspan=2, padx=10, pady=10, sticky=tk.W)
 
         self.enroll_button = tk.Button(master=self, text="Enroll", command=self.enroll_unit)
-        self.enroll_button.grid(row=7, column=0, padx=10, pady=10, sticky=tk.E)
+        self.enroll_button.grid(row=7, columnspan=2, padx=10, pady=10, sticky=tk.S)
 
         # Alert variable and label widget
         self.alert_var = tk.StringVar(master=self)
@@ -36,7 +36,7 @@ class Enroll(tk.Frame):
         
         # Return to menu button
         self.return_button = tk.Button(self, text="Return to menu", command=self.return_to_menu)
-        self.return_button.grid(row=30, columnspan=2, padx=10, pady=10, sticky=tk.E)
+        self.return_button.grid(row=30, columnspan=2, padx=10, pady=10, sticky=tk.N)
         
     def enroll_unit(self):
         specialization_list = []

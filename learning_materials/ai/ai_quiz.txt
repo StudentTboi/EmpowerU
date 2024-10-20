@@ -2,16 +2,36 @@ QuizID: Quiz001
 Title: Artificial Intelligence Basics
 
 Question: What is Artificial Intelligence (AI)?
-Answer: A branch of computer science focused on making machines smart
+A. A branch of computer science focused on making machines smart
+B. A system for managing emails
+C. A tool for designing websites
+D. A programming language for data analysis
+Answer: A
 
 Question: Which of the following is NOT an example of AI application?
-Answer: Sending emails manually
+A. Voice recognition
+B. Playing chess against a computer
+C. Sending emails manually
+D. Facial recognition
+Answer: C
 
 Question: What type of AI can learn from past experiences to improve decisions?
-Answer: Limited Memory
+A. Reactive Machines
+B. Limited Memory
+C. Theory of Mind
+D. Self-aware AI
+Answer: B
 
 Question: What part of AI helps machines understand and process human language?
-Answer: Natural Language Processing (NLP)
+A. Deep Learning
+B. Machine Learning
+C. Natural Language Processing (NLP)
+D. Computer Vision
+Answer: C
 
 Question: What type of AI system only reacts to current events without learning from the past?
-Answer: Reactive Machines.
+A. Limited Memory
+B. Self-aware AI
+C. Reactive Machines
+D. Theory of Mind
+Answer: C

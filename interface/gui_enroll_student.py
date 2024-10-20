@@ -28,7 +28,7 @@ class StudentEnroll(tk.Frame):
         
         # Instrument label widget
         self.view_label = tk.Label(master=self, text="Choose the student to enroll unit:")
-        self.view_label.grid(row=1, columnspan=2, sticky=tk.S, padx=10, pady=10)
+        self.view_label.grid(row=0, column=0, sticky=tk.S, padx=10, pady=10)
 
         self.show_student_list()
 
@@ -36,14 +36,14 @@ class StudentEnroll(tk.Frame):
 
         # Return to menu button
         self.return_button = tk.Button(self, text="Return to menu", command=self.return_to_menu)
-        self.return_button.grid(row=10, column=1, padx=10, pady=10, sticky=tk.E)
+        self.return_button.grid(row=len(self.user.students)+1, column=0, padx=10, pady=40, sticky=tk.S)
         
     def show_student_list(self):
         self.student_buttons = []
         for index,student in enumerate(self.user.students):
             show_edit_student_info_with_student = partial(self.show_chosen_student_info, student)
             new_button = tk.Button(master=self, text=f"{student.first_name} {student.last_name}", command=show_edit_student_info_with_student)
-            new_button.grid(row=index+2, column=0, padx=10, pady=10, sticky=tk.E)
+            new_button.grid(row=index+1, column=0, padx=10, pady=10)
             self.student_buttons.append(new_button)
 
     def show_chosen_student_info(self, studentname):
