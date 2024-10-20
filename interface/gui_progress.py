@@ -25,6 +25,13 @@ class Progress(tk.Frame):
             "InfoSec" : 1,
             "PyLearn": 2,
         }
+        
+        course_name_to_filepath = {
+            "AI" : "./learning_materials/ai",
+            "InfoSec" : "./learning_materials/infoSec",
+            "PyLearn": "./learning_materials/python",
+        }
+        
         for index,courses in enumerate(self.user.specialization):
             courses.strip()
             content_detail = tk.Label(master=self, text=f"{courses} content")
@@ -46,8 +53,17 @@ class Progress(tk.Frame):
             # Adding the progress bar to the window
             quiz_progress_bar.grid(row=index*2+2, column=1, padx=10, pady=10, sticky=tk.E)
 
-
-    
+            lines = util.read_file(f"{course_name_to_filepath[courses]}/quiz_grade.txt")
+            grade = 0.0
+            for line in lines:
+                line = line.strip().split(';')
+                if line[0] == self.user.uid:
+                    grade = max(grade, float(line[1])) 
+                    
+            quiz_grade = tk.Label(master=self, text=str(grade))
+            # Adding the progress bar to the window
+            quiz_progress_bar.grid(row=index*2+2, column=1, padx=10, pady=10, sticky=tk.E)
+            quiz_grade.grid(row=index*2+2, column=2, padx=10, pady=10, sticky=tk.E)
     
     def return_to_menu(self):
         """
