@@ -87,3 +87,38 @@ class LecturerUser(User):
                 course_progress = literal_eval(course_progress)
                 student_obj = StudentUser(student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization, course_progress)
                 self.students.append(student_obj)
+
+    def edit_student_data(self, student_to_edit, first_name=None, last_name=None, date_of_birth=None, contact_num=None, contact_email=None, username=None, password=None, specialization=[], course_progress=[]):
+        filepath = "./authenticate/students.txt"
+        if first_name == None:
+            first_name = student_to_edit.first_name
+        if last_name == None:
+            last_name = student_to_edit.last_name
+        if date_of_birth == None:
+            date_of_birth = student_to_edit.date_of_birth
+        if contact_num == None:
+            contact_num = student_to_edit.contact_num
+        if contact_email == None:
+            contact_email = student_to_edit.contact_email
+        if username == None:
+            username = student_to_edit.username
+        if password == None:
+            password = student_to_edit.password
+        if specialization == []:
+            specialization = student_to_edit.specialization
+        if course_progress == []:
+            course_progress = student_to_edit.course_progress
+        student_to_edit.first_name = first_name
+        student_to_edit.last_name = last_name
+        student_to_edit.date_of_birth = date_of_birth
+        student_to_edit.contact_num = contact_num
+        student_to_edit.contact_email = contact_email
+        student_to_edit.username = username
+        student_to_edit.password = password
+        student_to_edit.specialization = specialization
+        student_to_edit.course_progress = course_progress
+        
+        new_student_line = f"{student_to_edit.uid};{first_name};{last_name};{date_of_birth};{contact_num};{contact_email};{username};{password};{specialization};{course_progress}\n"
+        
+        return util.overwrite_file_at_line(filepath, int(student_to_edit.uid[1:])-1,new_student_line)
+    
