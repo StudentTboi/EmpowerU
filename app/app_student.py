@@ -37,5 +37,24 @@ class StudentUser(User):
         self.specialization = specialization
         self.course_progress = course_progress
 
+    def store_student_answer(self,student,course,answers):
+        # Assume no skips in student ID
+        student_id =student.uid
+        course_name=""
+        
+        filepath = "./authenticate/quiz_student_ans.txt"
+        for num in range(len(student.specialization)):
+            if student.specialization[num] ==course:
+                course_name= student.specialization[num]
+
+        new_student_line = f"{student_id};{course_name};{answers};\n"
+        
+        if util.append_to_file(filepath, new_student_line):
+            return True
+        else:
+            return False
+        
+    
+
 if __name__ == "__main__":
   pass
