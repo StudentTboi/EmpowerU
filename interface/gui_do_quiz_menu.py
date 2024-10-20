@@ -20,7 +20,7 @@ class DoQuiz(tk.Frame):
         self.answer_var = []
         self.question_label = []
         for index,question in enumerate(self.quiz.questions):
-            self.question_label.append(tk.Label(master=self, text=question))
+            self.question_label.append(tk.Label(master=self, text=question, justify="left"))
             self.answer_var.append(tk.StringVar(master=self))
             self.answer_entry.append(tk.Entry(master=self, textvariable=self.answer_var[index]))
             self.question_label[index].grid(row=index*2+1, column=0, sticky=tk.W)

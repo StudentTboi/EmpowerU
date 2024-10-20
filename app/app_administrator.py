@@ -203,7 +203,7 @@ class AdministratorUser(User):
         
         return util.overwrite_file_at_line(filepath, int(admin_to_edit.uid[1:])-1,new_admin_line)
 
-    def edit_student_data(self, student_to_edit, first_name=None, last_name=None, date_of_birth=None, contact_num=None, contact_email=None, username=None, password=None, specialization=[], course_progress=[0,0,0,0,0,0]):
+    def edit_student_data(self, student_to_edit, first_name=None, last_name=None, date_of_birth=None, contact_num=None, contact_email=None, username=None, password=None, specialization=None, course_progress=None):
         filepath = "./authenticate/students.txt"
         if first_name == None:
             first_name = student_to_edit.first_name
@@ -219,9 +219,9 @@ class AdministratorUser(User):
             username = student_to_edit.username
         if password == None:
             password = student_to_edit.password
-        if specialization == []:
+        if specialization == None:
             specialization = student_to_edit.specialization
-        if course_progress == [0,0,0,0,0,0]:
+        if course_progress == None:
             course_progress = student_to_edit.course_progress
 
         student_to_edit.first_name = first_name
@@ -238,7 +238,7 @@ class AdministratorUser(User):
         
         return util.overwrite_file_at_line(filepath, int(student_to_edit.uid[1:])-1,new_student_line)
 
-    def edit_lecturer_data(self, lecturer_to_edit, first_name=None, last_name=None, date_of_birth=None, contact_num=None, contact_email=None, username=None, password=None, specialization=[]):
+    def edit_lecturer_data(self, lecturer_to_edit, first_name=None, last_name=None, date_of_birth=None, contact_num=None, contact_email=None, username=None, password=None, specialization=None):
         if first_name == None:
             first_name = lecturer_to_edit.first_name
         if last_name == None:
@@ -253,7 +253,7 @@ class AdministratorUser(User):
             username = lecturer_to_edit.username
         if password == None:
             password = lecturer_to_edit.password
-        if specialization == []:
+        if specialization == None:
             specialization = lecturer_to_edit.specilization
 
         lecturer_to_edit.first_name = first_name

@@ -36,8 +36,6 @@ class StudentUser(User):
         super().__init__(uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
         self.specialization = specialization
         self.course_progress = course_progress
-        
-    
 
 if __name__ == "__main__":
   pass

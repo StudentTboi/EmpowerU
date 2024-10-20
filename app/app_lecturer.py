@@ -4,6 +4,7 @@ from ast import literal_eval
 
 from app.app_user import User
 from app.app_student import StudentUser
+import app.app_utils as util
 
 class LecturerUser(User):
 
@@ -49,10 +50,11 @@ class LecturerUser(User):
         """
         super().__init__(uid, first_name, last_name, date_of_birth, contact_num, contact_email, username, password)
         self.specialization = specialization
+        self.import_students_data()
 
     def import_students_data(self):
         """
-        Method to read students data and store it into the lecturer's session.
+        Method to read students data and store it into the admin's session.
 
         Parameter(s):
         (None)
@@ -61,16 +63,17 @@ class LecturerUser(User):
         (None)
         """
         self.students = []
-        students_path = "./data/pst4_students.txt"
-        if os.path.exists(students_path):
-            with open(students_path, "r", encoding="utf8") as rf:
-                lines = rf.readlines()
-                for line in lines:
-                    student_id, first_name, last_name, date_of_birth, contact_name, contact_num = line.strip("\n").split(",")
-                    student_obj = StudentUser(student_id, first_name, last_name, date_of_birth, contact_name, contact_num)
-                    self.students.append(student_obj)
-        else:
-            print(f"Please check the subdirectory and file exists for {students_path}.")
+        students_path = "./authenticate/students.txt"
+        lines = util.read_file(students_path)
+        if lines:
+            for line in lines:
+                if len(line)<6:
+                    continue
+                student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization, course_progress = line.strip("\n").split(";")
+                specialization = literal_eval(specialization)
+                course_progress = literal_eval(course_progress)
+                student_obj = StudentUser(student_id, first_name, last_name, date_of_birth, contact_num, contact_email, username, password, specialization, course_progress)
+                self.students.append(student_obj)
 
 if __name__ == "__main__":
     pass

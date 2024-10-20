@@ -45,10 +45,9 @@ class StudentProgress(tk.Frame):
             self.student_buttons.append(new_button)
 
     def show_chosen_student_info(self, student_to_show):
-        view_student_progress = Progress(self.master, self.menu, student_to_show)
+        view_student_progress = Progress(self.master, self, student_to_show)
         view_student_progress.place(relx=.5, rely=.5, anchor=tk.CENTER)
         self.hide_menu()
-
     
     def return_to_menu(self):
         """
@@ -61,7 +60,7 @@ class StudentProgress(tk.Frame):
         (None)
         """
         self.place_forget()
-        self.administrator_menu.place(relx=.5, rely=.5, anchor=tk.CENTER)
+        self.menu.place(relx=.5, rely=.5, anchor=tk.CENTER)
 
     def show_menu(self):
         """

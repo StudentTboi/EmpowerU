@@ -39,6 +39,13 @@ class CourseMenu(tk.Frame):
             editor_page = Editor(self.master, self, self.user, self.course, part_to_edit[self.course.filepath])
             editor_page.place(relx=.5, rely=.5, anchor=tk.CENTER)
         elif isinstance(self.user, StudentUser):
+            course_name_to_index = {
+                "AI" : 0,
+                "InfoSec" : 1,
+                "PyLearn": 2,
+            }
+            self.user.course_progress[course_name_to_index[self.course.course_type]*2] = 1
+            self.update_student_file(self.user)
             reading_materials = ReadingMaterialMenu(self.master, self, self.user, self.course)
             reading_materials.grid(row=0, column=0, sticky='WENS')
         self.hide_menu()
@@ -57,6 +64,13 @@ class CourseMenu(tk.Frame):
             editor_page = Editor(self.master, self, self.user, self.course, part_to_edit[self.course.filepath])
             editor_page.place(relx=.5, rely=.5, anchor=tk.CENTER)
         elif isinstance(self.user, StudentUser):
+            course_name_to_index = {
+                "AI" : 0,
+                "InfoSec" : 1,
+                "PyLearn": 2,
+            }
+            self.user.course_progress[course_name_to_index[self.course.course_type]*2+1] = 1
+            self.update_student_file(self.user)
             quiz_content = DoQuiz(self.master, self, self.user, self.course)
             quiz_content.place(relx=.5, rely=.5, anchor=tk.CENTER)
         self.hide_menu()
@@ -73,3 +87,10 @@ class CourseMenu(tk.Frame):
         """
         self.place_forget()
         self.menu.place(relx=.5, rely=.5, anchor=tk.CENTER)
+
+    def update_student_file(self, student_to_edit):
+        filepath = "./authenticate/students.txt"
+
+        new_student_line = f"{student_to_edit.uid};{student_to_edit.first_name};{student_to_edit.last_name};{student_to_edit.date_of_birth};{student_to_edit.contact_num};{student_to_edit.contact_email};{student_to_edit.username};{student_to_edit.password};{student_to_edit.specialization};{student_to_edit.course_progress}\n"
+        
+        return util.overwrite_file_at_line(filepath, int(student_to_edit.uid[1:])-1,new_student_line)
